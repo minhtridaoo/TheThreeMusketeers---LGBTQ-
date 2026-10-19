@@ -1,0 +1,27 @@
+{
+  "status": "prepared_not_run_on_kaggle",
+  "date": "2026-10-18",
+  "tests_passed": 43,
+  "test_scope": "CPU small-model training, transformer/TF-IDF checkpoint roundtrip, fresh offline subprocess, component resume and existing regressions",
+  "real_t4_run": false,
+  "full_dataset_training_executed": false,
+  "notebook_code_cells": 5,
+  "default_mode": "smoke",
+  "bundle_files": 23,
+  "bundle_size_bytes": 694772,
+  "bundle_sha256": "3e26c7758cf44ac82350398cb3abf58341b78767286a74caa68a83065b50c639",
+  "protected_files_unchanged": 36,
+  "expected_dryrun": {
+    "n_train": 2390,
+    "n_predictions_per_task": 599,
+    "checkpoints": 7,
+    "transformers": 5,
+    "tfidf": 2
+  },
+  "expected_smoke": {
+    "n_train": 64,
+    "n_predictions_per_task": 16,
+    "transformer_epochs": 1
+  },
+  "next_action": "User runs Kaggle cells 1 and 2, then smoke; dryrun only after successful smoke."
+}

@@ -1,0 +1,17 @@
+StereoQueerEval_id,stereotype,hate_speech
+training_EN_0003,yes,yes_implicit
+training_EN_0005,yes,yes_implicit
+training_EN_0010,yes,no
+training_EN_0013,yes,yes_implicit
+training_EN_0020,no,no
+training_EN_0023,yes,yes_implicit
+training_EN_0024,no,no
+training_EN_0031,yes,no
+training_EN_0037,yes,yes_implicit
+training_EN_0040,yes,yes_implicit
+training_EN_0049,yes,yes_implicit
+training_EN_0052,no,no
+training_EN_0056,no,no
+training_EN_0070,yes,yes_explicit
+training_EN_0072,no,no
+training_EN_0086,yes,yes_explicit

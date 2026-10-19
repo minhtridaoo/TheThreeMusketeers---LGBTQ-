@@ -1,0 +1,59 @@
+{
+  "mode": "dryrun",
+  "n_train": 2390,
+  "n_probe": 599,
+  "components": [
+    {
+      "name": "mt_twhate_comment",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "epochs": 4
+    },
+    {
+      "name": "mtcw_twhate_comment",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "epochs": 4
+    },
+    {
+      "name": "roberta_pair_title",
+      "tasks": [
+        "A"
+      ],
+      "epochs": 4
+    },
+    {
+      "name": "roberta_pair_title_desc",
+      "tasks": [
+        "A"
+      ],
+      "epochs": 4
+    },
+    {
+      "name": "tfidf_comment",
+      "tasks": [
+        "A"
+      ],
+      "epochs": null
+    },
+    {
+      "name": "tfidf_comment_title",
+      "tasks": [
+        "A"
+      ],
+      "epochs": null
+    },
+    {
+      "name": "twhate_comment",
+      "tasks": [
+        "B"
+      ],
+      "epochs": 4
+    }
+  ],
+  "run_fingerprint": "c1197928bb607eb6d9e5b09a1fa82479f829b68371d192d228866771a98f7259"
+}

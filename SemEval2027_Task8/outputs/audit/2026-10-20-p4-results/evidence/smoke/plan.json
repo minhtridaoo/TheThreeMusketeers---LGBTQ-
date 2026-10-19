@@ -1,0 +1,480 @@
+{
+  "mode": "smoke",
+  "recipe": {
+    "A": {
+      "strategy": "greedy + bias",
+      "components": {
+        "mt_twhate_comment": 1.0,
+        "mtcw_twhate_comment": 1.0,
+        "roberta_pair_title": 1.0,
+        "roberta_pair_title_desc": 1.0,
+        "tfidf_comment": 4.0,
+        "tfidf_comment_title": 2.0
+      },
+      "bias": [
+        0.0,
+        0.0
+      ],
+      "labels": [
+        "no",
+        "yes"
+      ],
+      "development_macro_f1": 0.7460196470173812,
+      "evaluation_scope": "development_oof_decision_crossfit",
+      "selection_rule": {
+        "best_scoring_strategy": "greedy + bias",
+        "best_simple_strategy": "best single + bias",
+        "gain_over_simple": 0.012238806849993011,
+        "minimum_ensemble_gain": 0.005,
+        "rule": "Choose best ensemble only if gain over best single (with/without bias) >= 0.005"
+      },
+      "component_configs": {
+        "mt_twhate_comment": {
+          "path": "outputs/runs/mt_twhate_comment_AB.json",
+          "sha256": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
+          "cfg": {
+            "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+            "input": "comment",
+            "max_length": 128,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": false,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        },
+        "mtcw_twhate_comment": {
+          "path": "outputs/runs/mtcw_twhate_comment_AB.json",
+          "sha256": "0e1ed2428e0a6a2d5bd047b28a54a947a2ac1c1f9a81c3ff182acc1701b3d546",
+          "cfg": {
+            "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+            "input": "comment",
+            "max_length": 128,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": true,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        },
+        "roberta_pair_title": {
+          "path": "outputs/runs/roberta_pair_title_A.json",
+          "sha256": "eb1154cd7dff9776540788b9bfe1e83eed7f0e7a122da7b05dd18e293b579adc",
+          "cfg": {
+            "model": "roberta-base",
+            "input": "pair_title",
+            "max_length": 128,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": false,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        },
+        "roberta_pair_title_desc": {
+          "path": "outputs/runs/roberta_pair_title_desc_A.json",
+          "sha256": "30e8df0ebdaeed7b20d15575c66780c3cf2fa1900a4725b9dfe1946c9ed261fa",
+          "cfg": {
+            "model": "roberta-base",
+            "input": "pair_title_desc",
+            "max_length": 256,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": false,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        }
+      },
+      "selected_strategy_oof": "outputs/selection/selected_A.csv",
+      "parameters_fit_scope": "all existing development OOF after strategy selection",
+      "score_scope_note": "Score evaluates fold-specific decision fits; final all-OOF recipe has no independent test score.",
+      "source_fingerprint": "2904d685b24102f4afd58c611f779fddb074d2402ed9f156096c863502a3b0d2",
+      "source_oof_sha256": {
+        "mt_twhate_comment": "8995d1a30340a274576e9623ec8d8d6116f16ab712befb7848e776cf997841e3",
+        "mtcw_twhate_comment": "345bfc39d8c097a693a2e64bc0d040dc0d63054c447113f915b2053fb1bc5fef",
+        "roberta_pair_title": "18248c19dc83cb33e2dd9c753e4e75746add7aa2e7992778bc211a41043cbfd9",
+        "roberta_pair_title_desc": "8d55568e51b8c5e1c553bbe58f1b3528f8435169397e13dbceeade7601ed676f",
+        "tfidf_comment": "8a81a01036b884001cb4739827ed912d5f7b828676305629ea5f6fbdfb506e98",
+        "tfidf_comment_title": "514f228a6f6ec66d1dbe8006ee6db52a09150d798858e355beb8438715c26a59"
+      }
+    },
+    "B": {
+      "strategy": "top-3 mean + bias",
+      "components": {
+        "mt_twhate_comment": 1.0,
+        "mtcw_twhate_comment": 1.0,
+        "twhate_comment": 1.0
+      },
+      "bias": [
+        0.0,
+        0.2,
+        0.1
+      ],
+      "labels": [
+        "no",
+        "yes_implicit",
+        "yes_explicit"
+      ],
+      "development_macro_f1": 0.6074550860206245,
+      "evaluation_scope": "development_oof_decision_crossfit",
+      "selection_rule": {
+        "best_scoring_strategy": "top-3 mean + bias",
+        "best_simple_strategy": "best single",
+        "gain_over_simple": 0.0068392962899589405,
+        "minimum_ensemble_gain": 0.005,
+        "rule": "Choose best ensemble only if gain over best single (with/without bias) >= 0.005"
+      },
+      "component_configs": {
+        "mt_twhate_comment": {
+          "path": "outputs/runs/mt_twhate_comment_AB.json",
+          "sha256": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
+          "cfg": {
+            "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+            "input": "comment",
+            "max_length": 128,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": false,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        },
+        "mtcw_twhate_comment": {
+          "path": "outputs/runs/mtcw_twhate_comment_AB.json",
+          "sha256": "0e1ed2428e0a6a2d5bd047b28a54a947a2ac1c1f9a81c3ff182acc1701b3d546",
+          "cfg": {
+            "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+            "input": "comment",
+            "max_length": 128,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": true,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        },
+        "twhate_comment": {
+          "path": "outputs/runs/twhate_comment_B.json",
+          "sha256": "e427ebcbe4650e3b5d24c7870fadda949dcff80b537e0b66374c1306853bac65",
+          "cfg": {
+            "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+            "input": "comment",
+            "max_length": 128,
+            "lr": 2e-05,
+            "epochs": 4,
+            "batch_size": 16,
+            "accum": 1,
+            "warmup": 0.1,
+            "weight_decay": 0.01,
+            "dropout": 0.1,
+            "class_weight": false,
+            "loss_weights": null,
+            "grad_ckpt": false,
+            "seed": 42
+          }
+        }
+      },
+      "selected_strategy_oof": "outputs/selection/selected_B.csv",
+      "parameters_fit_scope": "all existing development OOF after strategy selection",
+      "score_scope_note": "Score evaluates fold-specific decision fits; final all-OOF recipe has no independent test score.",
+      "source_fingerprint": "2904d685b24102f4afd58c611f779fddb074d2402ed9f156096c863502a3b0d2",
+      "source_oof_sha256": {
+        "mt_twhate_comment": "64571e9b35d69b138bd8907bb232b18cd54b178df0786b5e3bd0d21fc68938d6",
+        "mtcw_twhate_comment": "bee731307c240dae739290ec3c117855e1444ebc11eea3d6b3b1230d5cc10166",
+        "twhate_comment": "783515da054dc6726a0326600ea86a39dc257e60e43c47e0811b0892f6e1fa65"
+      }
+    }
+  },
+  "recipe_sha256": "2559e04227a6a2caa91e2540b660277d9db53953f1be0974ae9cf6b4206ec2e2",
+  "components": [
+    {
+      "name": "mt_twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "cfg": {
+        "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+        "input": "comment",
+        "max_length": 128,
+        "lr": 2e-05,
+        "epochs": 1,
+        "batch_size": 16,
+        "accum": 1,
+        "warmup": 0.1,
+        "weight_decay": 0.01,
+        "dropout": 0.1,
+        "class_weight": false,
+        "loss_weights": null,
+        "grad_ckpt": false,
+        "seed": 42
+      }
+    },
+    {
+      "name": "mtcw_twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "cfg": {
+        "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+        "input": "comment",
+        "max_length": 128,
+        "lr": 2e-05,
+        "epochs": 1,
+        "batch_size": 16,
+        "accum": 1,
+        "warmup": 0.1,
+        "weight_decay": 0.01,
+        "dropout": 0.1,
+        "class_weight": true,
+        "loss_weights": null,
+        "grad_ckpt": false,
+        "seed": 42
+      }
+    },
+    {
+      "name": "roberta_pair_title",
+      "kind": "transformer",
+      "tasks": [
+        "A"
+      ],
+      "cfg": {
+        "model": "roberta-base",
+        "input": "pair_title",
+        "max_length": 128,
+        "lr": 2e-05,
+        "epochs": 1,
+        "batch_size": 16,
+        "accum": 1,
+        "warmup": 0.1,
+        "weight_decay": 0.01,
+        "dropout": 0.1,
+        "class_weight": false,
+        "loss_weights": null,
+        "grad_ckpt": false,
+        "seed": 42
+      }
+    },
+    {
+      "name": "roberta_pair_title_desc",
+      "kind": "transformer",
+      "tasks": [
+        "A"
+      ],
+      "cfg": {
+        "model": "roberta-base",
+        "input": "pair_title_desc",
+        "max_length": 256,
+        "lr": 2e-05,
+        "epochs": 1,
+        "batch_size": 16,
+        "accum": 1,
+        "warmup": 0.1,
+        "weight_decay": 0.01,
+        "dropout": 0.1,
+        "class_weight": false,
+        "loss_weights": null,
+        "grad_ckpt": false,
+        "seed": 42
+      }
+    },
+    {
+      "name": "tfidf_comment",
+      "kind": "tfidf",
+      "tasks": [
+        "A"
+      ],
+      "cfg": {
+        "input": "comment",
+        "model": "tfidf_lr"
+      }
+    },
+    {
+      "name": "tfidf_comment_title",
+      "kind": "tfidf",
+      "tasks": [
+        "A"
+      ],
+      "cfg": {
+        "input": "comment_title",
+        "model": "tfidf_lr"
+      }
+    },
+    {
+      "name": "twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "B"
+      ],
+      "cfg": {
+        "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+        "input": "comment",
+        "max_length": 128,
+        "lr": 2e-05,
+        "epochs": 1,
+        "batch_size": 16,
+        "accum": 1,
+        "warmup": 0.1,
+        "weight_decay": 0.01,
+        "dropout": 0.1,
+        "class_weight": false,
+        "loss_weights": null,
+        "grad_ckpt": false,
+        "seed": 42
+      }
+    }
+  ],
+  "train_ids": [
+    "training_EN_0036",
+    "training_EN_0073",
+    "training_EN_0108",
+    "training_EN_0113",
+    "training_EN_0140",
+    "training_EN_0157",
+    "training_EN_0195",
+    "training_EN_0270",
+    "training_EN_0307",
+    "training_EN_0315",
+    "training_EN_0347",
+    "training_EN_0360",
+    "training_EN_0420",
+    "training_EN_0437",
+    "training_EN_0457",
+    "training_EN_0535",
+    "training_EN_0536",
+    "training_EN_0568",
+    "training_EN_0571",
+    "training_EN_0639",
+    "training_EN_0763",
+    "training_EN_0784",
+    "training_EN_0803",
+    "training_EN_0815",
+    "training_EN_0848",
+    "training_EN_0865",
+    "training_EN_0965",
+    "training_EN_1001",
+    "training_EN_1006",
+    "training_EN_1008",
+    "training_EN_1191",
+    "training_EN_1242",
+    "training_EN_1361",
+    "training_EN_1379",
+    "training_EN_1381",
+    "training_EN_1410",
+    "training_EN_1448",
+    "training_EN_1573",
+    "training_EN_1597",
+    "training_EN_1600",
+    "training_EN_1613",
+    "training_EN_1804",
+    "training_EN_1937",
+    "training_EN_1946",
+    "training_EN_1972",
+    "training_EN_2051",
+    "training_EN_2071",
+    "training_EN_2113",
+    "training_EN_2132",
+    "training_EN_2221",
+    "training_EN_2228",
+    "training_EN_2251",
+    "training_EN_2326",
+    "training_EN_2335",
+    "training_EN_2434",
+    "training_EN_2511",
+    "training_EN_2523",
+    "training_EN_2547",
+    "training_EN_2590",
+    "training_EN_2606",
+    "training_EN_2693",
+    "training_EN_2868",
+    "training_EN_2880",
+    "training_EN_2936"
+  ],
+  "probe_ids": [
+    "training_EN_0003",
+    "training_EN_0005",
+    "training_EN_0010",
+    "training_EN_0013",
+    "training_EN_0020",
+    "training_EN_0023",
+    "training_EN_0024",
+    "training_EN_0031",
+    "training_EN_0037",
+    "training_EN_0040",
+    "training_EN_0049",
+    "training_EN_0052",
+    "training_EN_0056",
+    "training_EN_0070",
+    "training_EN_0072",
+    "training_EN_0086"
+  ],
+  "train_data_sha256": "dd8104e66326b4570c67d64ad023d85741d284070f8152edef571b0bf5bd4521",
+  "probe_data_sha256": "28754a095e87dd89a9b03dbf774c5a58aaab1a3b0f066c6033d9d126b05d133d",
+  "source_sha256": {
+    "src/sqe/__init__.py": "ccea8bb50eb32e4396586680950f9c12499e2c62d981bbb88c1c485f7ce74432",
+    "src/sqe/checkpoint.py": "c3860e36b3f72633645651025480a809684a22537ce139a6db7039bcafb3f3e8",
+    "src/sqe/classical.py": "bcea351e5cb09a2badd183aedb93db42d0500a7b70b15c3fc0db73dc01e45f4e",
+    "src/sqe/data.py": "4eba76d415bc319dd3f7f9053558b39c2393771c2977f084b85481d26edbdbd5",
+    "src/sqe/decision.py": "31ae31cf57610718fd46e5f262e64a132142232ce32d05fb2a1da9072b3b749f",
+    "src/sqe/llm.py": "18e5d6a8b8863dc485edf63f9b06dfc1348571f0e2f08f00fac63753abe7ee2e",
+    "src/sqe/llm_eval.py": "4073134bcc5ccd1cacd7f3183e8cb5410adf302ded6fd603033b2ca2f38677ac",
+    "src/sqe/metrics.py": "753f882951d3e2a37be8930ed5bd001eb31a0d0b4b5a0c1cbc3b6a8745216bcb",
+    "src/sqe/p4.py": "dd1f8f7a857ba6ab3237888adc859b62c0984e929c95ba1c08177cd0120b2e04",
+    "src/sqe/results.py": "fa32ef12ee5591845482e454cfa8c6d9426c861883354fbd0755511a219318cd",
+    "src/sqe/selection.py": "191da2212097048a51afd42945bc636fb4fd694fd8ca85e576a061116680ab36",
+    "src/sqe/submission.py": "5f1ecf05279753612e86f6c257c60a2385ce10f4c8bb2142021d4cab118f8a2d",
+    "src/sqe/train.py": "0461f183fa4746bf914141ab23602635c5b4ac9a80e5db7370f7355770f5b26a",
+    "src/sqe/validation.py": "11f22966fac6531e97bddcc4463ab64232efb253414b368e49b82fd8d277fc3c"
+  },
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "sklearn": "1.6.1",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "prediction_batch_size": 32,
+  "purpose": "pipeline/reload check only; not independent performance evaluation",
+  "run_fingerprint": "399a419cb9020db2bf102fe2aa419669bf990fd808fe0d4e0ad02b6719a2a5ae"
+}

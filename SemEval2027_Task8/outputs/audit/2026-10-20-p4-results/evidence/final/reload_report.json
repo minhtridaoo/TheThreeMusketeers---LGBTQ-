@@ -1,0 +1,79 @@
+{
+  "mode": "final",
+  "status": "complete",
+  "run_fingerprint": "f13e0a2fd6fb84b713266ba70233e6eeb9baa02c454121267c9a7b92b36dbe67",
+  "fresh_process": true,
+  "offline_reload": true,
+  "n_train": 2989,
+  "n_predictions": 32,
+  "checks": [
+    {
+      "component": "mt_twhate_comment",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "mt_twhate_comment",
+      "task": "B",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "mtcw_twhate_comment",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "mtcw_twhate_comment",
+      "task": "B",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "roberta_pair_title",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "roberta_pair_title_desc",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "tfidf_comment",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "tfidf_comment_title",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "twhate_comment",
+      "task": "B",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    }
+  ],
+  "dryrun_scores": [],
+  "purpose": "pipeline/reload check only; not independent performance evaluation",
+  "checkpoint_count": 7,
+  "training_or_launcher_pid": 68,
+  "reload_pid": 150
+}

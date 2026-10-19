@@ -1,0 +1,27 @@
+{
+ "A": {
+  "strategy": "top-3 mean",
+  "components": {
+   "mt_twhate_comment": 1.0,
+   "mtcw_twhate_comment": 1.0,
+   "twhate_comment": 1.0
+  },
+  "bias": [
+   0.0,
+   0.0
+  ],
+  "nested_macro_f1": 0.7418598715502454
+ },
+ "B": {
+  "strategy": "best single",
+  "components": {
+   "mt_twhate_comment": 1.0
+  },
+  "bias": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "nested_macro_f1": 0.6006157897306655
+ }
+}

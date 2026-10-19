@@ -1,0 +1,199 @@
+{
+  "mode": "smoke",
+  "archive": "kaggle/results/sqe_p4_smoke.zip",
+  "archive_size_bytes": 2262348149,
+  "archive_sha256": "79b0ecab39b18fbe1fddd2434babf1e8efc6d430df918b92f3e80d08ac67356a",
+  "member_count": 60,
+  "uncompressed_bytes": 2527984906,
+  "all_member_crc_read_ok": true,
+  "member_sha256": {
+    "SemEval2027_Task8/outputs/p4/smoke/plan.json": "104abf818c3384057b5c496d882a0d5a245e5f4d09fb028d7f3e59668f415676",
+    "SemEval2027_Task8/outputs/p4/smoke/reload_report.json": "500a1c98e7698258da4f4c3b54605fa80bc39dc3396a1a21d09a360619ec472a",
+    "SemEval2027_Task8/outputs/p4/smoke/prediction_input.tsv": "caf1d291f97ed5005ceef3ffa9c720f10033140420f5c3fac83ed09d44beaa58",
+    "SemEval2027_Task8/outputs/p4/smoke/status.json": "500a1c98e7698258da4f4c3b54605fa80bc39dc3396a1a21d09a360619ec472a",
+    "SemEval2027_Task8/outputs/p4/smoke/truth.csv": "6798b07295f4700c54a23e07d8f8921133d84d88d4f96a25ce9c526cdd9e51df",
+    "SemEval2027_Task8/outputs/p4/smoke/predictions/smoke_probe_B.tsv": "6206e14b2425c98b4086f887349abff4b1feb05e932c8b685623b6c0d4503d9a",
+    "SemEval2027_Task8/outputs/p4/smoke/predictions/smoke_probe_A.tsv": "95db84aa77f70288edcfc47c3fa2c0096d919dfc8f2b9a621dd64e9d7631c0b1",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/tfidf_comment.npz": "020b3320b1d9c5ab1a2123038f436bbb54180ee0db8904ad8cfe6d860b583973",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/roberta_pair_title_desc.npz": "6512f695809b087d6780bc860da3f8aad5926f6fde7673bb5e659745f802c203",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/tfidf_comment_title.npz": "aa08b3cc023ddb899d59a7e0febb34baab5bbe454a4cc3035fecd80b33a6415a",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/mt_twhate_comment.npz": "a1078fc9a6704a9340c79e95bcd6d298f7278aa81fe8a4f4a15be951ad3b179b",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/twhate_comment.npz": "02b096e401c57ec3ea4f8db16f1c3b35fc66d1673f8bc940b03d434f7c5f93f0",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/roberta_pair_title.npz": "7ae50c2b20935e7ff01adb4e4796bedde1d8e4022f3ff3afcc629f30009ce000",
+    "SemEval2027_Task8/outputs/p4/smoke/reference/mtcw_twhate_comment.npz": "56fd7855ef57567c32c658c6a55573cd1ab2fef86eb53d49f77db2496b83c791",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/twhate_comment/checkpoint.json": "af3a68d84f600bb2541dab36dedffd643278e286743d8d34ab88165c33bafc3b",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/twhate_comment/model.pt": "bd4ded155c94905acbab6541aab3819f1d749dde3a923ba85d45150b3bb52425",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mtcw_twhate_comment/checkpoint.json": "5d26ac19685f42f734c3ee2b0c27da9476e493f7a70f4107d5bd2a5fc7100933",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mtcw_twhate_comment/model.pt": "0ca2534cb30fc892399ab5262ef9fc4c4c0e541a129386be42576fc82f81a54d",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title_desc/checkpoint.json": "7bbfaa8325102cdf3e88db84d18840a4591a2270178a0446ed6b91cde5ca306b",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title_desc/model.pt": "e6ed5570c46a564bbdcc1270fe7300b157227bb2973d7a3352e6bff06ada4cb7",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mt_twhate_comment/checkpoint.json": "8969c1bb12be7176aa3d54de924c24fe8a60fbc2f646188b527b984a98ff72ec",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mt_twhate_comment/model.pt": "4ebfe5bca0e591ebe5e0aee4c1cc451ad864b4a9af164ee5d0cbb45c2648bc13",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/tfidf_comment/checkpoint.json": "68f0df9768bd326aa238680676c0ba63eec9ea66396dc0b3cd3ba6bceb995588",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/tfidf_comment/pipeline.joblib": "455887a4ccddc52506eb22053c6f6fac1b9638030084fdbe742401822307b66c",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/tfidf_comment_title/checkpoint.json": "ef9a197bcf2c87cc5fe3e59cf0381e87743e15145c118a84d15f04037dee4f67",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/tfidf_comment_title/pipeline.joblib": "db146deadea25296b2e9715e4ba4086b028739daa43c83a634302ef2cc6fbe0c",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title/checkpoint.json": "00d728feade313a7d410a02d96aca5b7c2334a2fba7f1d65b6a6512d1b4246b0",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title/model.pt": "f4c9ee3511bd9c53272f754435b2be33a0ee61e227fa6d371a5f2f72c128e5d2",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title/tokenizer/tokenizer_config.json": "aa6a8a3f069d2d98c09444ee3f9671d64c29ce647473dccd78169b10c490d359",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title/tokenizer/tokenizer.json": "374dc8a4fa0c77de6197bf97170e2dfcdd7d10258621d27b9f755d2b33c3bec9",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title/encoder_config/config.json": "6f2472adb6dc03b91d02b11cb988244931e8da90655d1e82c2d8056a7148e760",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mt_twhate_comment/tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mt_twhate_comment/tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mt_twhate_comment/encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title_desc/tokenizer/tokenizer_config.json": "aa6a8a3f069d2d98c09444ee3f9671d64c29ce647473dccd78169b10c490d359",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title_desc/tokenizer/tokenizer.json": "9f49930af8b12d2fcad4e8cf500516c4251d46b2917f78bd9b49dbcc586261af",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/roberta_pair_title_desc/encoder_config/config.json": "6f2472adb6dc03b91d02b11cb988244931e8da90655d1e82c2d8056a7148e760",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mtcw_twhate_comment/tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mtcw_twhate_comment/tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/mtcw_twhate_comment/encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/twhate_comment/tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/twhate_comment/tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "SemEval2027_Task8/outputs/p4/smoke/checkpoints/twhate_comment/encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "SemEval2027_Task8/src/sqe/__init__.py": "ccea8bb50eb32e4396586680950f9c12499e2c62d981bbb88c1c485f7ce74432",
+    "SemEval2027_Task8/src/sqe/data.py": "4eba76d415bc319dd3f7f9053558b39c2393771c2977f084b85481d26edbdbd5",
+    "SemEval2027_Task8/src/sqe/validation.py": "11f22966fac6531e97bddcc4463ab64232efb253414b368e49b82fd8d277fc3c",
+    "SemEval2027_Task8/src/sqe/p4.py": "dd1f8f7a857ba6ab3237888adc859b62c0984e929c95ba1c08177cd0120b2e04",
+    "SemEval2027_Task8/src/sqe/metrics.py": "753f882951d3e2a37be8930ed5bd001eb31a0d0b4b5a0c1cbc3b6a8745216bcb",
+    "SemEval2027_Task8/src/sqe/classical.py": "bcea351e5cb09a2badd183aedb93db42d0500a7b70b15c3fc0db73dc01e45f4e",
+    "SemEval2027_Task8/src/sqe/train.py": "0461f183fa4746bf914141ab23602635c5b4ac9a80e5db7370f7355770f5b26a",
+    "SemEval2027_Task8/src/sqe/llm_eval.py": "4073134bcc5ccd1cacd7f3183e8cb5410adf302ded6fd603033b2ca2f38677ac",
+    "SemEval2027_Task8/src/sqe/selection.py": "191da2212097048a51afd42945bc636fb4fd694fd8ca85e576a061116680ab36",
+    "SemEval2027_Task8/src/sqe/submission.py": "5f1ecf05279753612e86f6c257c60a2385ce10f4c8bb2142021d4cab118f8a2d",
+    "SemEval2027_Task8/src/sqe/checkpoint.py": "c3860e36b3f72633645651025480a809684a22537ce139a6db7039bcafb3f3e8",
+    "SemEval2027_Task8/src/sqe/decision.py": "31ae31cf57610718fd46e5f262e64a132142232ce32d05fb2a1da9072b3b749f",
+    "SemEval2027_Task8/src/sqe/results.py": "fa32ef12ee5591845482e454cfa8c6d9426c861883354fbd0755511a219318cd",
+    "SemEval2027_Task8/src/sqe/llm.py": "18e5d6a8b8863dc485edf63f9b06dfc1348571f0e2f08f00fac63753abe7ee2e",
+    "SemEval2027_Task8/scripts/run_p4.py": "30105a987bf03a91d63e79707a765ca5862dabcbc7f7b3b537caf66e6429f868",
+    "SemEval2027_Task8/data/splits/folds_en.csv": "74f45b16ca34c366ae3333c9c5bf184ab1caaf22ac04bec42fb4f3b14973f65e",
+    "SemEval2027_Task8/outputs/submissions/recipe.json": "2559e04227a6a2caa91e2540b660277d9db53953f1be0974ae9cf6b4206ec2e2"
+  },
+  "checkpoint_payload_hashes_verified": 22,
+  "run_fingerprint": "399a419cb9020db2bf102fe2aa419669bf990fd808fe0d4e0ad02b6719a2a5ae",
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "sklearn": "1.6.1",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "n_train": 64,
+  "n_probe": 16,
+  "train_probe_video_overlap": 0,
+  "checkpoint_count": 7,
+  "reload_task_checks": 9,
+  "reported_max_reload_probability_diff": 0.0,
+  "fresh_process_pids": [
+    138,
+    215
+  ],
+  "reference_to_export_recomputed": true,
+  "checkpoints": [
+    {
+      "name": "mt_twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "epochs_completed": 1,
+      "training_minutes": 0.2651760377666676,
+      "train_loss": [
+        1.7932960391044617
+      ]
+    },
+    {
+      "name": "mtcw_twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "epochs_completed": 1,
+      "training_minutes": 0.08904333204999944,
+      "train_loss": [
+        1.798019915819168
+      ]
+    },
+    {
+      "name": "roberta_pair_title",
+      "kind": "transformer",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 1,
+      "training_minutes": 0.1439738714666665,
+      "train_loss": [
+        0.7065601646900177
+      ]
+    },
+    {
+      "name": "roberta_pair_title_desc",
+      "kind": "transformer",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 1,
+      "training_minutes": 0.12120891499999971,
+      "train_loss": [
+        0.7090554684400558
+      ]
+    },
+    {
+      "name": "tfidf_comment",
+      "kind": "tfidf",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 0,
+      "training_minutes": 0.0028106610500003627,
+      "train_loss": []
+    },
+    {
+      "name": "tfidf_comment_title",
+      "kind": "tfidf",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 0,
+      "training_minutes": 0.002772179716667248,
+      "train_loss": []
+    },
+    {
+      "name": "twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "B"
+      ],
+      "epochs_completed": 1,
+      "training_minutes": 0.086538555816666,
+      "train_loss": [
+        1.0742822289466858
+      ]
+    }
+  ],
+  "component_training_minutes_sum": 0.7115235528666668,
+  "predictions": [
+    {
+      "task": "A",
+      "rows": 16,
+      "id_order_labels_recipe_match": true,
+      "predicted_label_counts": {
+        "yes": 9,
+        "no": 7
+      }
+    },
+    {
+      "task": "B",
+      "rows": 16,
+      "id_order_labels_recipe_match": true,
+      "predicted_label_counts": {
+        "no": 8,
+        "yes_explicit": 4,
+        "yes_implicit": 4
+      }
+    }
+  ],
+  "status": "verified"
+}

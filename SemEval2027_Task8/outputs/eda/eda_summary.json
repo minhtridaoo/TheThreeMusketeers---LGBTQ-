@@ -1,0 +1,212 @@
+{
+  "metric_floor_en": {
+    "majority": {
+      "A": 0.357,
+      "B": 0.213
+    },
+    "random đều": {
+      "A": 0.498,
+      "B": 0.327
+    },
+    "random theo prior": {
+      "A": 0.5,
+      "B": 0.333
+    }
+  },
+  "AB_cramers_v_en": 0.528,
+  "video_prior_loo_en": {
+    "majority (macro-F1)": {
+      "A": 0.357,
+      "B": 0.213
+    },
+    "video-prior LOO (macro-F1)": {
+      "A": 0.615,
+      "B": 0.485
+    }
+  },
+  "truncation_en_roberta": {
+    "comment only: % comment bị cắt": {
+      "64": 15.5,
+      "128": 4.4,
+      "256": 0.9,
+      "384": 0.2,
+      "512": 0.1
+    },
+    "title+comment (pair): % comment bị cắt": {
+      "64": 16.1,
+      "128": 4.6,
+      "256": 0.9,
+      "384": 0.2,
+      "512": 0.1
+    },
+    "title+comment (pair): % title bị cắt": {
+      "64": 22.6,
+      "128": 5.9,
+      "256": 0.9,
+      "384": 0.2,
+      "512": 0.1
+    },
+    "naive t+d+c: % comment bị cắt": {
+      "64": 89.9,
+      "128": 53.1,
+      "256": 13.9,
+      "384": 3.5,
+      "512": 0.8
+    },
+    "naive t+d+c: % comment mất HẾT": {
+      "64": 70.8,
+      "128": 29.9,
+      "256": 8.2,
+      "384": 2.1,
+      "512": 0.0
+    },
+    "pair (c, t+d): % context bị cắt": {
+      "64": 89.0,
+      "128": 51.7,
+      "256": 13.5,
+      "384": 3.5,
+      "512": 0.7
+    }
+  },
+  "pct_hateful_without_identity_term_en": 70.3,
+  "cross_lingual": {
+    "EN": {
+      "n": 2989.0,
+      "số video": 243.0,
+      "comment/video (median)": 12.0,
+      "% stereotype": 44.4,
+      "% no": 47.1,
+      "% implicit": 25.8,
+      "% explicit": 27.1,
+      "P(stereo|implicit)": 53.9,
+      "P(stereo|explicit)": 80.2,
+      "P(stereo|no)": 18.5,
+      "% target cá nhân": 22.5,
+      "% identity = t": 42.9,
+      "% identity = lgbtqia+": 25.8,
+      "comment tokens median (XLM-R)": 24.0,
+      "desc tokens median (XLM-R)": 88.0
+    },
+    "IT": {
+      "n": 2400.0,
+      "số video": 187.0,
+      "comment/video (median)": 11.0,
+      "% stereotype": 27.0,
+      "% no": 48.3,
+      "% implicit": 24.2,
+      "% explicit": 27.5,
+      "P(stereo|implicit)": 38.7,
+      "P(stereo|explicit)": 54.5,
+      "P(stereo|no)": 5.5,
+      "% target cá nhân": 30.4,
+      "% identity = t": 20.7,
+      "% identity = lgbtqia+": 50.8,
+      "comment tokens median (XLM-R)": 23.0,
+      "desc tokens median (XLM-R)": 215.0
+    },
+    "NL": {
+      "n": 2238.0,
+      "số video": 127.0,
+      "comment/video (median)": 11.0,
+      "% stereotype": 38.8,
+      "% no": 50.4,
+      "% implicit": 21.8,
+      "% explicit": 27.9,
+      "P(stereo|implicit)": 49.7,
+      "P(stereo|explicit)": 73.6,
+      "P(stereo|no)": 14.8,
+      "% target cá nhân": 33.6,
+      "% identity = t": 40.1,
+      "% identity = lgbtqia+": 28.6,
+      "comment tokens median (XLM-R)": 21.0,
+      "desc tokens median (XLM-R)": 125.0
+    }
+  },
+  "leakage_check_tfidf_lr": {
+    "A|comment only": {
+      "group-by-video": 0.686,
+      "random split": 0.701,
+      "chênh lệch (random − group)": 0.015
+    },
+    "A|title + desc + comment": {
+      "group-by-video": 0.639,
+      "random split": 0.639,
+      "chênh lệch (random − group)": 0.001
+    },
+    "A|title + desc only (KHÔNG có comment)": {
+      "group-by-video": 0.53,
+      "random split": 0.587,
+      "chênh lệch (random − group)": 0.057
+    },
+    "B|comment only": {
+      "group-by-video": 0.51,
+      "random split": 0.521,
+      "chênh lệch (random − group)": 0.012
+    },
+    "B|title + desc + comment": {
+      "group-by-video": 0.455,
+      "random split": 0.48,
+      "chênh lệch (random − group)": 0.025
+    },
+    "B|title + desc only (KHÔNG có comment)": {
+      "group-by-video": 0.397,
+      "random split": 0.44,
+      "chênh lệch (random − group)": 0.043
+    }
+  },
+  "n_train": {
+    "EN": 2989,
+    "IT": 2400,
+    "NL": 2238
+  },
+  "n_videos": {
+    "EN": 243,
+    "IT": 187,
+    "NL": 127
+  },
+  "label_dist_A_pct": {
+    "EN": {
+      "no": 55.6,
+      "yes": 44.4
+    },
+    "IT": {
+      "no": 73.0,
+      "yes": 27.0
+    },
+    "NL": {
+      "no": 61.2,
+      "yes": 38.8
+    }
+  },
+  "label_dist_B_pct": {
+    "EN": {
+      "no": 47.1,
+      "yes_explicit": 27.1,
+      "yes_implicit": 25.8
+    },
+    "IT": {
+      "no": 48.3,
+      "yes_explicit": 27.5,
+      "yes_implicit": 24.2
+    },
+    "NL": {
+      "no": 50.4,
+      "yes_explicit": 27.9,
+      "yes_implicit": 21.8
+    }
+  },
+  "folds": {
+    "EN": {
+      "seed": 48,
+      "max_deviation": 0.0011
+    },
+    "IT": {
+      "seed": 37,
+      "max_deviation": 0.0017
+    },
+    "NL": {
+      "seed": 5,
+      "max_deviation": 0.01
+    }
+  }
+}

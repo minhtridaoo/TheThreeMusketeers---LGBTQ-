@@ -1,0 +1,279 @@
+{
+  "mode": "dryrun",
+  "archive": "kaggle/results/sqe_p4_dryrun.zip",
+  "archive_size_bytes": 2282746128,
+  "archive_sha256": "9e6340070c37b9f5180b8b335e58e3bbfdbb5b4399b7c73eeaf8ce0a5122f002",
+  "member_count": 60,
+  "uncompressed_bytes": 2530481350,
+  "all_member_crc_read_ok": true,
+  "member_sha256": {
+    "SemEval2027_Task8/outputs/p4/dryrun/reload_report.json": "1cb1bc971841d0c524f78e94f2bed08b397335bf8274a1add7f403b4ef148b61",
+    "SemEval2027_Task8/outputs/p4/dryrun/status.json": "1cb1bc971841d0c524f78e94f2bed08b397335bf8274a1add7f403b4ef148b61",
+    "SemEval2027_Task8/outputs/p4/dryrun/truth.csv": "10628adb9dc86deac36d9bc3464935943a9166f8300b1769181d8fc76c5bd3b5",
+    "SemEval2027_Task8/outputs/p4/dryrun/plan.json": "e69aeab9ae0a6cff6c68d5953eae6822558547fe1a46a294205ee1b824181353",
+    "SemEval2027_Task8/outputs/p4/dryrun/prediction_input.tsv": "efc392633adea64351c795cad0a07806b01eca6bef583478a84369dea273aedc",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/tfidf_comment.npz": "db3a7c47f4f5f17f8f8ee0ab6c2d48b2d7a50fc93ab5e18bfad539bf2ca1c7ea",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/twhate_comment.npz": "80d3254d3136141e598424dabe5cb7f8527a431aaedcb8f5c61883018ffc9749",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/roberta_pair_title.npz": "1db74102b08ee9c9dab729d90169f4da7dda6d70cc727a30c16ccfc60bbcfbef",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/mt_twhate_comment.npz": "ae6ee0d5646e87142d5e796fb74f05df2fc428f8522db092893c5104f49d7af9",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/tfidf_comment_title.npz": "0e9cb7dd09f57c2447d9a614fbf5f2329916b2f8be4bca5ff2940cc434410401",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/roberta_pair_title_desc.npz": "1770abddbc432a5e0f71371459ac554dc31c2ab4a58e48a603cc498474af811a",
+    "SemEval2027_Task8/outputs/p4/dryrun/reference/mtcw_twhate_comment.npz": "b560f4d0f171a8164c26fc0b6d3588970a716732b33b0cf15689175369a7a59d",
+    "SemEval2027_Task8/outputs/p4/dryrun/predictions/dryrun_fold0_A.tsv": "39ec0317980e145859aecd5f7d6cb49d9a136b7fdfe07382a9947c3a9447e0d5",
+    "SemEval2027_Task8/outputs/p4/dryrun/predictions/dryrun_fold0_B.tsv": "df7dd56f165807842c2a7d3f3e03bc9b6393314c40f6bee63044080eca5842d2",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title_desc/checkpoint.json": "0921c3e430dd2ad5f850d2f2e5f8af450f9da51887853c74241aafea7b9c8f30",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title_desc/model.pt": "290a4ba5214412008a2470c1ee70f45c0335c455a4d83ccd9f2ad9627512312e",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title/checkpoint.json": "b62d50af0e41508340e5efd69a4b0d6272ee0285a294cfde771ee5766d09bd23",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title/model.pt": "256db6d5fb23aefd09cd64a35a4f5d85f5339b9c1b342fbd860f18b67a12b610",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/tfidf_comment/pipeline.joblib": "bd297d512187a176179f9d8ca96e35a64db5937f48b20a140f9947603256fa0d",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/tfidf_comment/checkpoint.json": "a6b57fb30c856c7583f4e0bf8d73dfb65dc27b1dcf63dc805a5101d89cd702e1",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mtcw_twhate_comment/checkpoint.json": "7f6e3063f351d0ebfcd09d7af23e12d46b5f5fa5e5202d5f4d1516e9b86211fc",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mtcw_twhate_comment/model.pt": "cd7d0799c30bf2d9e4a083f97f1217f70a5596140b2ad1767e561eb6299f9795",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/twhate_comment/checkpoint.json": "8922272306bfe9d0ff6a4037292e2832b94604b512562b428d6dc7276d5ecd03",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/twhate_comment/model.pt": "6069c44844e8b3ba8d73466d2c06612f30e0387cb8fbf7dfb0df3c84de776d69",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/tfidf_comment_title/pipeline.joblib": "edcee2c27956267cecf19cc8b02cee78b006e2d443936b46c4e00a4eef993506",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/tfidf_comment_title/checkpoint.json": "2755ebb5978afc9e4e971ce2c9c76ca316ab8f7eb91ecb3f34b0b50799367944",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mt_twhate_comment/checkpoint.json": "327ff2679c66fcd67eda88aeffd37f55bd38fed262957290fb2c97ac76d51bd8",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mt_twhate_comment/model.pt": "38ebd334ba440a62f3c50836e52b69b5be856835db184ba49e5f8f2f871ec0ec",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mt_twhate_comment/tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mt_twhate_comment/tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mt_twhate_comment/encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/twhate_comment/tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/twhate_comment/tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/twhate_comment/encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mtcw_twhate_comment/tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mtcw_twhate_comment/tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/mtcw_twhate_comment/encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title/tokenizer/tokenizer_config.json": "aa6a8a3f069d2d98c09444ee3f9671d64c29ce647473dccd78169b10c490d359",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title/tokenizer/tokenizer.json": "374dc8a4fa0c77de6197bf97170e2dfcdd7d10258621d27b9f755d2b33c3bec9",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title/encoder_config/config.json": "6f2472adb6dc03b91d02b11cb988244931e8da90655d1e82c2d8056a7148e760",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title_desc/tokenizer/tokenizer_config.json": "aa6a8a3f069d2d98c09444ee3f9671d64c29ce647473dccd78169b10c490d359",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title_desc/tokenizer/tokenizer.json": "9f49930af8b12d2fcad4e8cf500516c4251d46b2917f78bd9b49dbcc586261af",
+    "SemEval2027_Task8/outputs/p4/dryrun/checkpoints/roberta_pair_title_desc/encoder_config/config.json": "6f2472adb6dc03b91d02b11cb988244931e8da90655d1e82c2d8056a7148e760",
+    "SemEval2027_Task8/src/sqe/validation.py": "11f22966fac6531e97bddcc4463ab64232efb253414b368e49b82fd8d277fc3c",
+    "SemEval2027_Task8/src/sqe/checkpoint.py": "c3860e36b3f72633645651025480a809684a22537ce139a6db7039bcafb3f3e8",
+    "SemEval2027_Task8/src/sqe/decision.py": "31ae31cf57610718fd46e5f262e64a132142232ce32d05fb2a1da9072b3b749f",
+    "SemEval2027_Task8/src/sqe/submission.py": "5f1ecf05279753612e86f6c257c60a2385ce10f4c8bb2142021d4cab118f8a2d",
+    "SemEval2027_Task8/src/sqe/__init__.py": "ccea8bb50eb32e4396586680950f9c12499e2c62d981bbb88c1c485f7ce74432",
+    "SemEval2027_Task8/src/sqe/results.py": "fa32ef12ee5591845482e454cfa8c6d9426c861883354fbd0755511a219318cd",
+    "SemEval2027_Task8/src/sqe/data.py": "4eba76d415bc319dd3f7f9053558b39c2393771c2977f084b85481d26edbdbd5",
+    "SemEval2027_Task8/src/sqe/train.py": "0461f183fa4746bf914141ab23602635c5b4ac9a80e5db7370f7355770f5b26a",
+    "SemEval2027_Task8/src/sqe/llm_eval.py": "4073134bcc5ccd1cacd7f3183e8cb5410adf302ded6fd603033b2ca2f38677ac",
+    "SemEval2027_Task8/src/sqe/llm.py": "18e5d6a8b8863dc485edf63f9b06dfc1348571f0e2f08f00fac63753abe7ee2e",
+    "SemEval2027_Task8/src/sqe/metrics.py": "753f882951d3e2a37be8930ed5bd001eb31a0d0b4b5a0c1cbc3b6a8745216bcb",
+    "SemEval2027_Task8/src/sqe/p4.py": "dd1f8f7a857ba6ab3237888adc859b62c0984e929c95ba1c08177cd0120b2e04",
+    "SemEval2027_Task8/src/sqe/selection.py": "191da2212097048a51afd42945bc636fb4fd694fd8ca85e576a061116680ab36",
+    "SemEval2027_Task8/src/sqe/classical.py": "bcea351e5cb09a2badd183aedb93db42d0500a7b70b15c3fc0db73dc01e45f4e",
+    "SemEval2027_Task8/scripts/run_p4.py": "30105a987bf03a91d63e79707a765ca5862dabcbc7f7b3b537caf66e6429f868",
+    "SemEval2027_Task8/data/splits/folds_en.csv": "74f45b16ca34c366ae3333c9c5bf184ab1caaf22ac04bec42fb4f3b14973f65e",
+    "SemEval2027_Task8/outputs/submissions/recipe.json": "2559e04227a6a2caa91e2540b660277d9db53953f1be0974ae9cf6b4206ec2e2"
+  },
+  "checkpoint_payload_hashes_verified": 22,
+  "run_fingerprint": "83d303176d3e7578f3acb40fc7caef4a92c7a0d9e143fdb792b67b4f103331c6",
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "sklearn": "1.6.1",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "n_train": 2390,
+  "n_probe": 599,
+  "train_probe_video_overlap": 0,
+  "checkpoint_count": 7,
+  "reload_task_checks": 9,
+  "reported_max_reload_probability_diff": 0.0,
+  "fresh_process_pids": [
+    69,
+    147
+  ],
+  "reference_to_export_recomputed": true,
+  "checkpoints": [
+    {
+      "name": "mt_twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "epochs_completed": 4,
+      "training_minutes": 4.739531452183333,
+      "train_loss": [
+        1.5620049262046813,
+        1.2178430930773416,
+        0.9505350434780121,
+        0.758839630484581
+      ]
+    },
+    {
+      "name": "mtcw_twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "A",
+        "B"
+      ],
+      "epochs_completed": 4,
+      "training_minutes": 4.666233453550001,
+      "train_loss": [
+        1.603616813023885,
+        1.2590546230475108,
+        0.9793861409028372,
+        0.7823736306031545
+      ]
+    },
+    {
+      "name": "roberta_pair_title",
+      "kind": "transformer",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 4,
+      "training_minutes": 4.978593303416667,
+      "train_loss": [
+        0.6600978748003642,
+        0.5205213325222333,
+        0.36273765141765274,
+        0.22802162607510884
+      ]
+    },
+    {
+      "name": "roberta_pair_title_desc",
+      "kind": "transformer",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 4,
+      "training_minutes": 10.448467855983335,
+      "train_loss": [
+        0.6735766251881917,
+        0.539288455247879,
+        0.3804109081625938,
+        0.2437220116207997
+      ]
+    },
+    {
+      "name": "tfidf_comment",
+      "kind": "tfidf",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 0,
+      "training_minutes": 0.04401635126666482,
+      "train_loss": []
+    },
+    {
+      "name": "tfidf_comment_title",
+      "kind": "tfidf",
+      "tasks": [
+        "A"
+      ],
+      "epochs_completed": 0,
+      "training_minutes": 0.04988767936666439,
+      "train_loss": []
+    },
+    {
+      "name": "twhate_comment",
+      "kind": "transformer",
+      "tasks": [
+        "B"
+      ],
+      "epochs_completed": 4,
+      "training_minutes": 4.665628003450001,
+      "train_loss": [
+        0.9624595582485199,
+        0.7144513660669327,
+        0.4996538179119428,
+        0.36243529960513116
+      ]
+    }
+  ],
+  "component_training_minutes_sum": 29.592358099216668,
+  "predictions": [
+    {
+      "task": "A",
+      "rows": 599,
+      "id_order_labels_recipe_match": true,
+      "predicted_label_counts": {
+        "no": 311,
+        "yes": 288
+      },
+      "macro_f1_pipeline_check_only": 0.7548770096643271,
+      "labels": [
+        "no",
+        "yes"
+      ],
+      "per_class_f1": [
+        0.7732919254658385,
+        0.7364620938628159
+      ],
+      "per_class_recall": [
+        0.7477477477477478,
+        0.7669172932330827
+      ],
+      "support": [
+        333,
+        266
+      ],
+      "confusion_matrix": [
+        [
+          249,
+          84
+        ],
+        [
+          62,
+          204
+        ]
+      ]
+    },
+    {
+      "task": "B",
+      "rows": 599,
+      "id_order_labels_recipe_match": true,
+      "predicted_label_counts": {
+        "no": 257,
+        "yes_explicit": 189,
+        "yes_implicit": 153
+      },
+      "macro_f1_pipeline_check_only": 0.6145723764771384,
+      "labels": [
+        "no",
+        "yes_implicit",
+        "yes_explicit"
+      ],
+      "per_class_f1": [
+        0.7421150278293135,
+        0.4805194805194805,
+        0.6210826210826211
+      ],
+      "per_class_recall": [
+        0.7092198581560284,
+        0.4774193548387097,
+        0.6728395061728395
+      ],
+      "support": [
+        282,
+        155,
+        162
+      ],
+      "confusion_matrix": [
+        [
+          200,
+          46,
+          36
+        ],
+        [
+          37,
+          74,
+          44
+        ],
+        [
+          20,
+          33,
+          109
+        ]
+      ]
+    }
+  ],
+  "status": "verified"
+}

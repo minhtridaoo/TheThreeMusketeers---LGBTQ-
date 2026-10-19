@@ -1,0 +1,66 @@
+{
+  "kind": "transformer",
+  "cfg": {
+    "model": "roberta-base",
+    "input": "pair_title",
+    "max_length": 128,
+    "lr": 2e-05,
+    "epochs": 4,
+    "batch_size": 16,
+    "accum": 1,
+    "warmup": 0.1,
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "class_weight": false,
+    "loss_weights": null,
+    "grad_ckpt": false,
+    "seed": 42
+  },
+  "tasks": [
+    "A"
+  ],
+  "labels": {
+    "A": [
+      "no",
+      "yes"
+    ]
+  },
+  "identity": "f4ea5a71eadcd6ba9f73c10e6b548708403e17c63f67fd23855d1be10d67d540",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6468408284659054
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.49206739735794575
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.337938980383669
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2163220801176553
+    }
+  ],
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "sklearn": "1.6.1",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "base_model_revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+  "format_version": 1,
+  "complete": true,
+  "files_sha256": {
+    "encoder_config/config.json": "6f2472adb6dc03b91d02b11cb988244931e8da90655d1e82c2d8056a7148e760",
+    "model.pt": "20f95c0ee6b9ef12661a61a637922fd0c61643e5847e01927374da245923983c",
+    "tokenizer/tokenizer.json": "374dc8a4fa0c77de6197bf97170e2dfcdd7d10258621d27b9f755d2b33c3bec9",
+    "tokenizer/tokenizer_config.json": "aa6a8a3f069d2d98c09444ee3f9671d64c29ce647473dccd78169b10c490d359"
+  },
+  "reference_sha256": "2f28e23b0f1ee3511a15f5ef881e0d47a3dcaafeca541fb7e537725d4841b420",
+  "training_minutes": 6.133848453816667
+}

@@ -1,0 +1,99 @@
+{
+  "rows": 30,
+  "filled": 30,
+  "source_mismatches": 0,
+  "revised_notes": [
+    {
+      "row": 1,
+      "id": "training_EN_1733"
+    },
+    {
+      "row": 12,
+      "id": "training_EN_1993"
+    },
+    {
+      "row": 14,
+      "id": "training_EN_0263"
+    },
+    {
+      "row": 16,
+      "id": "training_EN_0620"
+    },
+    {
+      "row": 20,
+      "id": "training_EN_2613"
+    },
+    {
+      "row": 21,
+      "id": "training_EN_1675"
+    },
+    {
+      "row": 22,
+      "id": "training_EN_0311"
+    },
+    {
+      "row": 23,
+      "id": "training_EN_2024"
+    },
+    {
+      "row": 28,
+      "id": "training_EN_0373"
+    }
+  ],
+  "source_hashes": {
+    "SemEval2027_Task8\\outputs\\oof\\deberta_comment_A.csv": "612cec3f6b5b4852cbf167e0d7e54aacce470cdd3881c025a89f0890dc506f91",
+    "SemEval2027_Task8\\outputs\\oof\\deberta_comment_B.csv": "33611473f8ba90423e8a68e62368661795529774b26457806e9c8488b09ea5c2",
+    "SemEval2027_Task8\\outputs\\oof\\majority_comment_A.csv": "fdbed944c039a4adcc0f70b7f191e7e27a1205821babe05476466c43701e8ce9",
+    "SemEval2027_Task8\\outputs\\oof\\majority_comment_B.csv": "a5f4a374cd76034d428332477d6baa67a6b700cb3c1cda1f4b0c989bab2038e1",
+    "SemEval2027_Task8\\outputs\\oof\\mtcw_twhate_comment_A.csv": "345bfc39d8c097a693a2e64bc0d040dc0d63054c447113f915b2053fb1bc5fef",
+    "SemEval2027_Task8\\outputs\\oof\\mtcw_twhate_comment_B.csv": "bee731307c240dae739290ec3c117855e1444ebc11eea3d6b3b1230d5cc10166",
+    "SemEval2027_Task8\\outputs\\oof\\mtcw_twhate_comment_bias_A.csv": "00a23b7024712504e5f9b81afad5979692e7390c63e3d1074868efdfdc3d19d1",
+    "SemEval2027_Task8\\outputs\\oof\\mtcw_twhate_comment_bias_B.csv": "e80fc9669a9a12fae260a836ca3b87fc86f830dec4f1e3b3035ef6e33a35f5d8",
+    "SemEval2027_Task8\\outputs\\oof\\mt_twhate_comment_A.csv": "8995d1a30340a274576e9623ec8d8d6116f16ab712befb7848e776cf997841e3",
+    "SemEval2027_Task8\\outputs\\oof\\mt_twhate_comment_B.csv": "64571e9b35d69b138bd8907bb232b18cd54b178df0786b5e3bd0d21fc68938d6",
+    "SemEval2027_Task8\\outputs\\oof\\mt_twhate_comment_bias_A.csv": "f8b44b41829b4fe2d2f453181b180728f624e13d31b0ccbc01609eb8f74e24ab",
+    "SemEval2027_Task8\\outputs\\oof\\mt_twhate_comment_bias_B.csv": "e3dbf50e4304f339e675f4c92795e934579e94131163fcd64969797a87c3fdf3",
+    "SemEval2027_Task8\\outputs\\oof\\random_comment_A.csv": "26a0ddf18747dd8532e70d40991d569fb80f5be0a7284d68cca6bdfcc5ad67b0",
+    "SemEval2027_Task8\\outputs\\oof\\random_comment_B.csv": "43ea7865af36037cb2bda72bb98f1bf0b53ce509fe5a4a5e4bc49cecf9c4bc35",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_comment_A.csv": "7821db9212802c941ed93304eeed7f9778632564ab3c485a885efb899c33f757",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_comment_B.csv": "d2f1eb8b65bfa670cb3f7b28007556d1c8856496416851f00373e9a8abbed208",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_concat_tdc_A.csv": "6881e2e574679d4fcddd175b84796b461cad89add0d95ee9e2dbeb48de6cba84",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_concat_tdc_B.csv": "42c6ac547a1fee2440599eb6a00ebdb2e866111857f9e3261976065a6ee25d39",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_pair_title_A.csv": "18248c19dc83cb33e2dd9c753e4e75746add7aa2e7992778bc211a41043cbfd9",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_pair_title_B.csv": "ca37cdc299e7d889208004c7d304744d576a3339be376cf23dbf65aed3ff07ab",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_pair_title_desc_A.csv": "8d55568e51b8c5e1c553bbe58f1b3528f8435169397e13dbceeade7601ed676f",
+    "SemEval2027_Task8\\outputs\\oof\\roberta_pair_title_desc_B.csv": "051623ed2c0dd64c43c44c29ed013c62b8e44c28f0faf7fb7487357b493d1b3b",
+    "SemEval2027_Task8\\outputs\\oof\\tfidf_comment_A.csv": "8a81a01036b884001cb4739827ed912d5f7b828676305629ea5f6fbdfb506e98",
+    "SemEval2027_Task8\\outputs\\oof\\tfidf_comment_B.csv": "ace9532015d861c08af1077df23b6fc05a2fcf8703c1b392872972a2909fb2fb",
+    "SemEval2027_Task8\\outputs\\oof\\tfidf_comment_title_A.csv": "514f228a6f6ec66d1dbe8006ee6db52a09150d798858e355beb8438715c26a59",
+    "SemEval2027_Task8\\outputs\\oof\\tfidf_comment_title_B.csv": "ec0d2809d001f3f570945330f8bc120cc8e3522306e7ba012cc80673fe23f7a5",
+    "SemEval2027_Task8\\outputs\\oof\\tfidf_lr_comment_B.csv": "ace9532015d861c08af1077df23b6fc05a2fcf8703c1b392872972a2909fb2fb",
+    "SemEval2027_Task8\\outputs\\oof\\tfidf_lr_comment_title_B.csv": "ec0d2809d001f3f570945330f8bc120cc8e3522306e7ba012cc80673fe23f7a5",
+    "SemEval2027_Task8\\outputs\\oof\\twhate_comment_A.csv": "2d5cdaeb9e18c9d9a67f03c2fe6052ae8be21eebab879a69a3e283f50744d87d",
+    "SemEval2027_Task8\\outputs\\oof\\twhate_comment_B.csv": "783515da054dc6726a0326600ea86a39dc257e60e43c47e0811b0892f6e1fa65",
+    "SemEval2027_Task8\\outputs\\oof\\twhate_comment_bias_A.csv": "c5e360f87c159d04750ed563b04082440d58b0704734127d0618720d5c0d8b4f",
+    "SemEval2027_Task8\\outputs\\oof\\twhate_comment_bias_B.csv": "b837923f9f55ce7de0fbb580a8bad1987c45cb11b1554dfd7175914dce6d4d11",
+    "SemEval2027_Task8\\outputs\\llm_predictions\\qwen7b_few_shot_A_92c7563e09fa4fdf.csv": "3cc2be72cfc21215307408f0476643daf8f53f304b6608963fc97ee03c001c6a",
+    "SemEval2027_Task8\\outputs\\llm_predictions\\qwen7b_few_shot_B_0cef2b3df424d72a.csv": "c12bddf325e12c3ffa567d418714fd202d39811b1f9e80a9598d6f7b71955cda",
+    "SemEval2027_Task8\\outputs\\llm_predictions\\qwen7b_zero_shot_A_20bb49fd7d09761e.csv": "168941c4280509f86e25fce1ebd5e528b55c3908340e28a5b19a50391696037d",
+    "SemEval2027_Task8\\outputs\\llm_predictions\\qwen7b_zero_shot_B_06fd925e6c1ee3d1.csv": "a1a8d0ae5b6af93b4cef20160078bbc0d57567e75b58aed24731b37270db46c9",
+    "SemEval2027_Task8\\outputs\\runs\\deberta_comment_A.json": "aad4eaddb6b4f32542b5333e307a314617b728fcb1cb1487c239d7b0125161c0",
+    "SemEval2027_Task8\\outputs\\runs\\deberta_comment_B.json": "85087f4401ff9f8e9a2d002bc352dcff76d39d18dccd2f177f0bb920df0636ab",
+    "SemEval2027_Task8\\outputs\\runs\\mtcw_twhate_comment_AB.json": "0e1ed2428e0a6a2d5bd047b28a54a947a2ac1c1f9a81c3ff182acc1701b3d546",
+    "SemEval2027_Task8\\outputs\\runs\\mt_twhate_comment_AB.json": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_comment_A.json": "ed8a9f875bc96352950fd2464d943b0a015fc68189a02af93ab7eab83dac3214",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_comment_B.json": "d5ee79e510943c6c46a484ae1b15360d735fd0f3941ca5d2a599e1c47a376dbb",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_concat_tdc_A.json": "132c2628cfb5b2b07ddbcfd15dd5419ddcffcc00ab59002c51f49ce8db50f0b2",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_concat_tdc_B.json": "2d25bb167fb55c1778731afe27ee4c098a324570b118f2f236e704154ff8fa86",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_pair_title_A.json": "eb1154cd7dff9776540788b9bfe1e83eed7f0e7a122da7b05dd18e293b579adc",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_pair_title_B.json": "b5390505a7c5cf825fe973bddbb0c244e2861a453e533da05be86b84103e2b28",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_pair_title_desc_A.json": "30e8df0ebdaeed7b20d15575c66780c3cf2fa1900a4725b9dfe1946c9ed261fa",
+    "SemEval2027_Task8\\outputs\\runs\\roberta_pair_title_desc_B.json": "cbaf709efafda6e61c947ef30dea954d456eacdfe0b1e41fb3735b2a1bf2f1a1",
+    "SemEval2027_Task8\\outputs\\runs\\twhate_comment_A.json": "6a5cf8cc220a9864a5eb283183b3481b333ebe3ef73e0076c35744a24f66e2ed",
+    "SemEval2027_Task8\\outputs\\runs\\twhate_comment_B.json": "e427ebcbe4650e3b5d24c7870fadda949dcff80b537e0b66374c1306853bac65",
+    "SemEval2027_Task8\\outputs\\error_analysis\\errors_A.csv": "974c1fed6b9654185e2f39dafebdebf06b04b9586da49c81ef0a927b5f7433e4",
+    "SemEval2027_Task8\\outputs\\error_analysis\\errors_B.csv": "bee45bab1264de8f6597d946ccc1355c556fe43fa8274986d401ddb08d094919",
+    "SemEval2027_Task8\\outputs\\error_analysis\\sample_30_B.csv": "5a2cb0643b9a899ffd24677b54d0a715029ef50f344debbe75b22b802e838054",
+    "SemEval2027_Task8\\data\\splits\\folds_en.csv": "74f45b16ca34c366ae3333c9c5bf184ab1caaf22ac04bec42fb4f3b14973f65e"
+  }
+}

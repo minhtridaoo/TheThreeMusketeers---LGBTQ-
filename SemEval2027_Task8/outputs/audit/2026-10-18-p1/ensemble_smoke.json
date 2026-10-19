@@ -1,0 +1,171 @@
+{
+  "A": {
+    "candidates": [
+      "mt_twhate_comment",
+      "mtcw_twhate_comment",
+      "roberta_comment",
+      "roberta_concat_tdc",
+      "roberta_pair_title",
+      "roberta_pair_title_desc",
+      "tfidf_comment",
+      "tfidf_comment_title",
+      "twhate_comment"
+    ],
+    "excluded": [
+      {
+        "name": "deberta_comment",
+        "reason": "deberta_comment/A: Nonfinite probabilities (NaN/Inf); failed run cannot be scored."
+      }
+    ],
+    "greedy_smoke_scores": {
+      "macro_f1": 0.7454648056906562,
+      "f1_no": 0.7765788505748867,
+      "f1_yes": 0.7143507608064257,
+      "macro_f1_std": 0.014151639203405278
+    },
+    "fold_picks": {
+      "0": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "1": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      "2": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      "3": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1
+      ],
+      "4": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    "note": "P1 regression smoke only; no new recipe selected.",
+    "valid_candidates": 9
+  },
+  "B": {
+    "candidates": [
+      "mt_twhate_comment",
+      "mtcw_twhate_comment",
+      "roberta_comment",
+      "roberta_concat_tdc",
+      "roberta_pair_title",
+      "roberta_pair_title_desc",
+      "tfidf_comment",
+      "tfidf_comment_title",
+      "twhate_comment"
+    ],
+    "excluded": [
+      {
+        "name": "deberta_comment",
+        "reason": "deberta_comment/B: Nonfinite probabilities (NaN/Inf); failed run cannot be scored."
+      }
+    ],
+    "greedy_smoke_scores": {
+      "macro_f1": 0.5959647151457438,
+      "f1_no": 0.7611508232476212,
+      "f1_yes_implicit": 0.41371099229269837,
+      "f1_yes_explicit": 0.6130323298969119,
+      "macro_f1_std": 0.014860436828673324
+    },
+    "fold_picks": {
+      "0": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "1": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1
+      ],
+      "2": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "3": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "4": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "note": "P1 regression smoke only; no new recipe selected.",
+    "valid_candidates": 9
+  }
+}

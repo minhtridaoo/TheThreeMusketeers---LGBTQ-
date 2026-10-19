@@ -1,0 +1,536 @@
+{
+  "checked_on": "2026-10-20",
+  "status": "passed",
+  "p4_complete": true,
+  "final_full_data_checkpoints_available": true,
+  "modes": [
+    {
+      "mode": "smoke",
+      "archive": "kaggle/results/sqe_p4_smoke.zip",
+      "archive_size_bytes": 2262348149,
+      "archive_sha256": "79b0ecab39b18fbe1fddd2434babf1e8efc6d430df918b92f3e80d08ac67356a",
+      "member_count": 60,
+      "uncompressed_bytes": 2527984906,
+      "all_member_crc_read_ok": true,
+      "checkpoint_payload_hashes_verified": 22,
+      "run_fingerprint": "399a419cb9020db2bf102fe2aa419669bf990fd808fe0d4e0ad02b6719a2a5ae",
+      "environment": {
+        "python": "3.13.15",
+        "torch": "2.11.0+cu128",
+        "transformers": "5.16.1",
+        "sklearn": "1.6.1",
+        "cuda": "12.8",
+        "gpu": "Tesla T4"
+      },
+      "n_train": 64,
+      "n_probe": 16,
+      "train_probe_video_overlap": 0,
+      "checkpoint_count": 7,
+      "reload_task_checks": 9,
+      "reported_max_reload_probability_diff": 0.0,
+      "fresh_process_pids": [
+        138,
+        215
+      ],
+      "reference_to_export_recomputed": true,
+      "checkpoints": [
+        {
+          "name": "mt_twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "A",
+            "B"
+          ],
+          "epochs_completed": 1,
+          "training_minutes": 0.2651760377666676,
+          "train_loss": [
+            1.7932960391044617
+          ]
+        },
+        {
+          "name": "mtcw_twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "A",
+            "B"
+          ],
+          "epochs_completed": 1,
+          "training_minutes": 0.08904333204999944,
+          "train_loss": [
+            1.798019915819168
+          ]
+        },
+        {
+          "name": "roberta_pair_title",
+          "kind": "transformer",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 1,
+          "training_minutes": 0.1439738714666665,
+          "train_loss": [
+            0.7065601646900177
+          ]
+        },
+        {
+          "name": "roberta_pair_title_desc",
+          "kind": "transformer",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 1,
+          "training_minutes": 0.12120891499999971,
+          "train_loss": [
+            0.7090554684400558
+          ]
+        },
+        {
+          "name": "tfidf_comment",
+          "kind": "tfidf",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 0,
+          "training_minutes": 0.0028106610500003627,
+          "train_loss": []
+        },
+        {
+          "name": "tfidf_comment_title",
+          "kind": "tfidf",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 0,
+          "training_minutes": 0.002772179716667248,
+          "train_loss": []
+        },
+        {
+          "name": "twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "B"
+          ],
+          "epochs_completed": 1,
+          "training_minutes": 0.086538555816666,
+          "train_loss": [
+            1.0742822289466858
+          ]
+        }
+      ],
+      "component_training_minutes_sum": 0.7115235528666668,
+      "predictions": [
+        {
+          "task": "A",
+          "rows": 16,
+          "id_order_labels_recipe_match": true,
+          "predicted_label_counts": {
+            "yes": 9,
+            "no": 7
+          }
+        },
+        {
+          "task": "B",
+          "rows": 16,
+          "id_order_labels_recipe_match": true,
+          "predicted_label_counts": {
+            "no": 8,
+            "yes_explicit": 4,
+            "yes_implicit": 4
+          }
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "mode": "dryrun",
+      "archive": "kaggle/results/sqe_p4_dryrun.zip",
+      "archive_size_bytes": 2282746128,
+      "archive_sha256": "9e6340070c37b9f5180b8b335e58e3bbfdbb5b4399b7c73eeaf8ce0a5122f002",
+      "member_count": 60,
+      "uncompressed_bytes": 2530481350,
+      "all_member_crc_read_ok": true,
+      "checkpoint_payload_hashes_verified": 22,
+      "run_fingerprint": "83d303176d3e7578f3acb40fc7caef4a92c7a0d9e143fdb792b67b4f103331c6",
+      "environment": {
+        "python": "3.13.15",
+        "torch": "2.11.0+cu128",
+        "transformers": "5.16.1",
+        "sklearn": "1.6.1",
+        "cuda": "12.8",
+        "gpu": "Tesla T4"
+      },
+      "n_train": 2390,
+      "n_probe": 599,
+      "train_probe_video_overlap": 0,
+      "checkpoint_count": 7,
+      "reload_task_checks": 9,
+      "reported_max_reload_probability_diff": 0.0,
+      "fresh_process_pids": [
+        69,
+        147
+      ],
+      "reference_to_export_recomputed": true,
+      "checkpoints": [
+        {
+          "name": "mt_twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "A",
+            "B"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 4.739531452183333,
+          "train_loss": [
+            1.5620049262046813,
+            1.2178430930773416,
+            0.9505350434780121,
+            0.758839630484581
+          ]
+        },
+        {
+          "name": "mtcw_twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "A",
+            "B"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 4.666233453550001,
+          "train_loss": [
+            1.603616813023885,
+            1.2590546230475108,
+            0.9793861409028372,
+            0.7823736306031545
+          ]
+        },
+        {
+          "name": "roberta_pair_title",
+          "kind": "transformer",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 4.978593303416667,
+          "train_loss": [
+            0.6600978748003642,
+            0.5205213325222333,
+            0.36273765141765274,
+            0.22802162607510884
+          ]
+        },
+        {
+          "name": "roberta_pair_title_desc",
+          "kind": "transformer",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 10.448467855983335,
+          "train_loss": [
+            0.6735766251881917,
+            0.539288455247879,
+            0.3804109081625938,
+            0.2437220116207997
+          ]
+        },
+        {
+          "name": "tfidf_comment",
+          "kind": "tfidf",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 0,
+          "training_minutes": 0.04401635126666482,
+          "train_loss": []
+        },
+        {
+          "name": "tfidf_comment_title",
+          "kind": "tfidf",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 0,
+          "training_minutes": 0.04988767936666439,
+          "train_loss": []
+        },
+        {
+          "name": "twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "B"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 4.665628003450001,
+          "train_loss": [
+            0.9624595582485199,
+            0.7144513660669327,
+            0.4996538179119428,
+            0.36243529960513116
+          ]
+        }
+      ],
+      "component_training_minutes_sum": 29.592358099216668,
+      "predictions": [
+        {
+          "task": "A",
+          "rows": 599,
+          "id_order_labels_recipe_match": true,
+          "predicted_label_counts": {
+            "no": 311,
+            "yes": 288
+          },
+          "macro_f1_pipeline_check_only": 0.7548770096643271,
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "per_class_f1": [
+            0.7732919254658385,
+            0.7364620938628159
+          ],
+          "per_class_recall": [
+            0.7477477477477478,
+            0.7669172932330827
+          ],
+          "support": [
+            333,
+            266
+          ],
+          "confusion_matrix": [
+            [
+              249,
+              84
+            ],
+            [
+              62,
+              204
+            ]
+          ]
+        },
+        {
+          "task": "B",
+          "rows": 599,
+          "id_order_labels_recipe_match": true,
+          "predicted_label_counts": {
+            "no": 257,
+            "yes_explicit": 189,
+            "yes_implicit": 153
+          },
+          "macro_f1_pipeline_check_only": 0.6145723764771384,
+          "labels": [
+            "no",
+            "yes_implicit",
+            "yes_explicit"
+          ],
+          "per_class_f1": [
+            0.7421150278293135,
+            0.4805194805194805,
+            0.6210826210826211
+          ],
+          "per_class_recall": [
+            0.7092198581560284,
+            0.4774193548387097,
+            0.6728395061728395
+          ],
+          "support": [
+            282,
+            155,
+            162
+          ],
+          "confusion_matrix": [
+            [
+              200,
+              46,
+              36
+            ],
+            [
+              37,
+              74,
+              44
+            ],
+            [
+              20,
+              33,
+              109
+            ]
+          ]
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "mode": "final",
+      "archive": "kaggle/results/sqe_p4_final.zip",
+      "archive_size_bytes": 2285746978,
+      "archive_sha256": "6f2eec211aa1ddb8f738d887311e7c5ad183c7ea7f8af910fc246e4b1aaea317",
+      "member_count": 60,
+      "uncompressed_bytes": 2530365623,
+      "all_member_crc_read_ok": true,
+      "checkpoint_payload_hashes_verified": 22,
+      "run_fingerprint": "f13e0a2fd6fb84b713266ba70233e6eeb9baa02c454121267c9a7b92b36dbe67",
+      "environment": {
+        "python": "3.13.15",
+        "torch": "2.11.0+cu128",
+        "transformers": "5.16.1",
+        "sklearn": "1.6.1",
+        "cuda": "12.8",
+        "gpu": "Tesla T4"
+      },
+      "n_train": 2989,
+      "n_probe": 32,
+      "train_probe_video_overlap": 30,
+      "checkpoint_count": 7,
+      "reload_task_checks": 9,
+      "reported_max_reload_probability_diff": 0.0,
+      "fresh_process_pids": [
+        68,
+        150
+      ],
+      "reference_to_export_recomputed": true,
+      "checkpoints": [
+        {
+          "name": "mt_twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "A",
+            "B"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 5.812354374733332,
+          "train_loss": [
+            1.543432904437264,
+            1.1886910219243503,
+            0.9171925912247622,
+            0.7211061446743215
+          ]
+        },
+        {
+          "name": "mtcw_twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "A",
+            "B"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 5.75851698515,
+          "train_loss": [
+            1.5820911300373588,
+            1.2459904965869883,
+            0.9515834651528833,
+            0.7532654740912391
+          ]
+        },
+        {
+          "name": "roberta_pair_title",
+          "kind": "transformer",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 6.133848453816667,
+          "train_loss": [
+            0.6468408284659054,
+            0.49206739735794575,
+            0.337938980383669,
+            0.2163220801176553
+          ]
+        },
+        {
+          "name": "roberta_pair_title_desc",
+          "kind": "transformer",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 13.017995908933335,
+          "train_loss": [
+            0.6647343297693181,
+            0.5158665582617337,
+            0.3502194391374282,
+            0.22301404079531922
+          ]
+        },
+        {
+          "name": "tfidf_comment",
+          "kind": "tfidf",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 0,
+          "training_minutes": 0.04381245213333689,
+          "train_loss": []
+        },
+        {
+          "name": "tfidf_comment_title",
+          "kind": "tfidf",
+          "tasks": [
+            "A"
+          ],
+          "epochs_completed": 0,
+          "training_minutes": 0.05805316944999959,
+          "train_loss": []
+        },
+        {
+          "name": "twhate_comment",
+          "kind": "transformer",
+          "tasks": [
+            "B"
+          ],
+          "epochs_completed": 4,
+          "training_minutes": 5.762539861666672,
+          "train_loss": [
+            0.9398430232058235,
+            0.6926636549240766,
+            0.4755225579209506,
+            0.32986742234166294
+          ]
+        }
+      ],
+      "component_training_minutes_sum": 36.58712120588334,
+      "predictions": [
+        {
+          "task": "A",
+          "rows": 32,
+          "id_order_labels_recipe_match": true,
+          "predicted_label_counts": {
+            "yes": 19,
+            "no": 13
+          }
+        },
+        {
+          "task": "B",
+          "rows": 32,
+          "id_order_labels_recipe_match": true,
+          "predicted_label_counts": {
+            "no": 13,
+            "yes_implicit": 11,
+            "yes_explicit": 8
+          }
+        }
+      ],
+      "status": "verified"
+    }
+  ],
+  "protected_artifacts_count": 62,
+  "protected_artifacts_unchanged": true,
+  "verification_scope": "Local archive CRC/SHA-256, source/config/recipe/data/fold/ID/label checks, training history, stored Kaggle fresh offline reload evidence, independently recomputed predictions and dryrun metrics. No local model forward pass or retraining.",
+  "performance_scope": "Dryrun fold 0 is pipeline verification only, not independent test; final 32-row probe is in-sample and unscored.",
+  "checkpoint_storage": "Original ZIPs retained in kaggle/results; only lightweight audit evidence copied. No project overwrite.",
+  "documentation_update": {
+    "files": {
+      "SemEval2027_Task8/ROADMAP.md": "17a2a64375ea13c3a497f06923db7c91760396c57462581ac1e5d1aef42c77f9",
+      "HANDOFF_CS221.md": "07d29e38d5f1bb7d4111d3241f4fce8c9fbcc4c0c2146aa448a40f9affdb7262",
+      "WORKLOG_CS221.md": "b84fb40693aa1965f0ce1f62ee6fb5b8ea56f1a1be84db76aef377236534ba84",
+      "kaggle/HUONG_DAN_KAGGLE_P4.md": "84068ea6a7dc4f092ba9bb0a8b827e7f7439ed4259612817ce215af6c8c39295",
+      "SemEval2027_Task8/README.md": "c387d6ece425c5e53f87faac364fb0d8326da555453f1df04528c5ee15fa9c93",
+      "SemEval2027_Task8/outputs/audit/2026-10-20-p4-results/P4_REVIEW.md": "082598923e0e249af662d075081f59c7874ffc6675e8b4bd042aa471ce95a325"
+    },
+    "relative_links_checked": 66,
+    "broken_links": [],
+    "historical_worklog_preserved": true,
+    "pipeline_remains_redirect": true,
+    "protected_artifacts_unchanged_after_doc_edits": true,
+    "model_code_changed": false,
+    "new_training_or_unit_test_run": false
+  }
+}

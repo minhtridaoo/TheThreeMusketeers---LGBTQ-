@@ -1,0 +1,32 @@
+{
+  "kind": "tfidf",
+  "cfg": {
+    "input": "comment",
+    "model": "tfidf_lr"
+  },
+  "tasks": [
+    "A"
+  ],
+  "labels": {
+    "A": [
+      "no",
+      "yes"
+    ]
+  },
+  "identity": "643efaabd910e0710603ee9592002b999a3d0ee79f9b31be8e2422303317db9e",
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "sklearn": "1.6.1",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "format_version": 1,
+  "complete": true,
+  "files_sha256": {
+    "pipeline.joblib": "f3a0c098ff92747342670df347f6f94f28c26614ecd253654cd5b584d0c90add"
+  },
+  "reference_sha256": "a9d9ea63dd138c3556af5a7fe73144859e6a536b060c2cad05b837f71e3821a3",
+  "training_minutes": 0.04381245213333689
+}

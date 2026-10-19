@@ -1,0 +1,11 @@
+{
+  "experiment": "few_shot",
+  "subtask": "B",
+  "phase": "full",
+  "done": 599,
+  "total": 599,
+  "status": "complete",
+  "seconds_per_new_request": 0.41408663960103637,
+  "eta_minutes": 0.0,
+  "updated_utc": "2026-10-14T06:07:03.690649+00:00"
+}

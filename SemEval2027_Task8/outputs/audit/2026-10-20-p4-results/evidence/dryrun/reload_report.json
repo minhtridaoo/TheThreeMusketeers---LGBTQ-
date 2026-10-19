@@ -1,0 +1,88 @@
+{
+  "mode": "dryrun",
+  "status": "complete",
+  "run_fingerprint": "83d303176d3e7578f3acb40fc7caef4a92c7a0d9e143fdb792b67b4f103331c6",
+  "fresh_process": true,
+  "offline_reload": true,
+  "n_train": 2390,
+  "n_predictions": 599,
+  "checks": [
+    {
+      "component": "mt_twhate_comment",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "mt_twhate_comment",
+      "task": "B",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "mtcw_twhate_comment",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "mtcw_twhate_comment",
+      "task": "B",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "roberta_pair_title",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "roberta_pair_title_desc",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "tfidf_comment",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "tfidf_comment_title",
+      "task": "A",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "component": "twhate_comment",
+      "task": "B",
+      "labels_equal": true,
+      "probabilities_close": true,
+      "max_abs_diff": 0.0
+    }
+  ],
+  "dryrun_scores": [
+    {
+      "task": "A",
+      "macro_f1_pipeline_check_only": 0.7548770096643271
+    },
+    {
+      "task": "B",
+      "macro_f1_pipeline_check_only": 0.6145723764771384
+    }
+  ],
+  "purpose": "pipeline/reload check only; not independent performance evaluation",
+  "checkpoint_count": 7,
+  "training_or_launcher_pid": 69,
+  "reload_pid": 147
+}

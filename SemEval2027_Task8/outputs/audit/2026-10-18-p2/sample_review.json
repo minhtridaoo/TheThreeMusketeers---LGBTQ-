@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-18",
+  "review_scope": "User completed manual reading; assistant verified source fields and synthesized feedback without changing annotations.",
+  "rows": 30,
+  "unique_ids": 30,
+  "notes_filled": 30,
+  "source_field_mismatches": [],
+  "groups": {
+    "báo nhầm hate (no → hate)": 10,
+    "bỏ sót hate (hate → no)": 10,
+    "nhầm implicit ↔ explicit": 10
+  },
+  "fold0_comparison": [
+    {
+      "row": 1,
+      "id": "training_EN_1733",
+      "gold": "no",
+      "mt": "yes_explicit",
+      "zero": "no",
+      "few": "no"
+    },
+    {
+      "row": 6,
+      "id": "training_EN_1090",
+      "gold": "no",
+      "mt": "yes_implicit",
+      "zero": "no",
+      "few": "no"
+    },
+    {
+      "row": 12,
+      "id": "training_EN_1993",
+      "gold": "yes_explicit",
+      "mt": "no",
+      "zero": "no",
+      "few": "no"
+    },
+    {
+      "row": 21,
+      "id": "training_EN_1675",
+      "gold": "yes_implicit",
+      "mt": "yes_explicit",
+      "zero": "yes_explicit",
+      "few": "yes_explicit"
+    },
+    {
+      "row": 22,
+      "id": "training_EN_0311",
+      "gold": "yes_implicit",
+      "mt": "yes_explicit",
+      "zero": "no",
+      "few": "yes_implicit"
+    },
+    {
+      "row": 28,
+      "id": "training_EN_0373",
+      "gold": "yes_implicit",
+      "mt": "yes_explicit",
+      "zero": "no",
+      "few": "no"
+    },
+    {
+      "row": 30,
+      "id": "training_EN_0939",
+      "gold": "yes_implicit",
+      "mt": "yes_explicit",
+      "zero": "no",
+      "few": "yes_implicit"
+    }
+  ],
+  "fold0_correct": {
+    "mt": 0,
+    "zero": 2,
+    "few": 4
+  },
+  "config": {
+    "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+    "input": "comment",
+    "max_length": 128,
+    "lr": 2e-05,
+    "epochs": 4,
+    "batch_size": 16,
+    "accum": 1,
+    "warmup": 0.1,
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "class_weight": false,
+    "loss_weights": null,
+    "grad_ckpt": false,
+    "seed": 42
+  },
+  "source_sha256": {
+    "SemEval2027_Task8\\outputs\\error_analysis\\sample_30_B.csv": "b87910e1e0f66f4a6d8b54e43c22a890a46242b25a522a68a503f9de263cb3a6",
+    "StereoQueerEval_SemEval-2027\\StereoQueerEval_training\\StereoQueerEval_EN_training.tsv": "783230dc1e6d07a85e1d7dece539db78ab4c3f27daea99e151346a0fec0277f7",
+    "SemEval2027_Task8\\data\\splits\\folds_en.csv": "74f45b16ca34c366ae3333c9c5bf184ab1caaf22ac04bec42fb4f3b14973f65e",
+    "SemEval2027_Task8\\outputs\\oof\\mt_twhate_comment_B.csv": "64571e9b35d69b138bd8907bb232b18cd54b178df0786b5e3bd0d21fc68938d6",
+    "SemEval2027_Task8\\outputs\\error_analysis\\errors_B.csv": "bee45bab1264de8f6597d946ccc1355c556fe43fa8274986d401ddb08d094919",
+    "SemEval2027_Task8\\outputs\\llm_predictions\\qwen7b_zero_shot_B_06fd925e6c1ee3d1.csv": "a1a8d0ae5b6af93b4cef20160078bbc0d57567e75b58aed24731b37270db46c9",
+    "SemEval2027_Task8\\outputs\\llm_predictions\\qwen7b_few_shot_B_0cef2b3df424d72a.csv": "c12bddf325e12c3ffa567d418714fd202d39811b1f9e80a9598d6f7b71955cda",
+    "SemEval2027_Task8\\outputs\\runs\\mt_twhate_comment_AB.json": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
+    "SemEval2027_Task8\\outputs\\results\\validated_results.csv": "d341edb942f71b5bb449a7ce4d16af216593c3e2dd2e3f40084cd523f89e48a8",
+    "SemEval2027_Task8\\outputs\\results\\all_results.csv": "9200dc75a9d93a408c6f31cf7f006fae3b32887c0294503d7fa5cc71bccae543",
+    "SemEval2027_Task8\\outputs\\submissions\\recipe.json": "24d2eb17000a1b8a34721d69cb2b055f0fb0149ca73c5456e952cd25cee90869"
+  }
+}

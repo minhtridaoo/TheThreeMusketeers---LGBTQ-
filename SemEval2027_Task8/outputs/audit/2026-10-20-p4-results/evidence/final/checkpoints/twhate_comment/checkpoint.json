@@ -1,0 +1,67 @@
+{
+  "kind": "transformer",
+  "cfg": {
+    "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+    "input": "comment",
+    "max_length": 128,
+    "lr": 2e-05,
+    "epochs": 4,
+    "batch_size": 16,
+    "accum": 1,
+    "warmup": 0.1,
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "class_weight": false,
+    "loss_weights": null,
+    "grad_ckpt": false,
+    "seed": 42
+  },
+  "tasks": [
+    "B"
+  ],
+  "labels": {
+    "B": [
+      "no",
+      "yes_implicit",
+      "yes_explicit"
+    ]
+  },
+  "identity": "0070752e40822b2a34de94552976b004fabf50aa25792f4a6c52dd539d60147e",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9398430232058235
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6926636549240766
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.4755225579209506
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.32986742234166294
+    }
+  ],
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "sklearn": "1.6.1",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "base_model_revision": "cc56585908cbda6d04ba2e1234d911fd1578c9ab",
+  "format_version": 1,
+  "complete": true,
+  "files_sha256": {
+    "encoder_config/config.json": "68ff82ba3f415489ff5cf876293dbe5d9e9e744cd1c341e461d73fb37a851756",
+    "model.pt": "54de9ac71c1e5030e452243bfa1a3c170843c61fd076d641b3df0a2952b183d8",
+    "tokenizer/tokenizer.json": "9d5687cf691423bb98277a97272d034907e85c49500d5d45b389acdaa509d418",
+    "tokenizer/tokenizer_config.json": "cbb78c9067009d3835dda2adc72977dece264569a11d7eb06f5387fd0419350d"
+  },
+  "reference_sha256": "0cb6c2dc29d7b6daca359d97c64270d95d2b3c550a1e519e62698c521fb82e16",
+  "training_minutes": 5.762539861666672
+}

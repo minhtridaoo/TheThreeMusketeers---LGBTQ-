@@ -1,0 +1,40 @@
+{
+  "source_artifacts_unchanged": 54,
+  "source_changes": [],
+  "strategies": 12,
+  "fold_scores": 60,
+  "fold_fit_records": 60,
+  "selected": {
+    "A": {
+      "strategy": "greedy + bias",
+      "macro_f1": 0.7460196470173812,
+      "std": 0.010278029478516963
+    },
+    "B": {
+      "strategy": "top-3 mean + bias",
+      "macro_f1": 0.6074550860206245,
+      "std": 0.012699750370716321
+    }
+  },
+  "notebooks": {
+    "07_error_analysis": {
+      "executed_code_cells": 12,
+      "errors": 0
+    },
+    "08_ensemble_submission": {
+      "executed_code_cells": 9,
+      "errors": 0
+    }
+  },
+  "tests_passed": 38,
+  "master_rows": 40,
+  "statuses": {
+    "completed_valid": 36,
+    "failed_nonfinite": 2,
+    "superseded_p3": 2
+  },
+  "nb05_nb06_preserved": true,
+  "original_manual_notes_preserved": true,
+  "p3_review_exports_idempotent": true,
+  "p3_error_output": "outputs/error_analysis/p3/2904d685b241"
+}

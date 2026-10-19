@@ -1,0 +1,15 @@
+﻿subtask,bước,model,input,macro_f1,std,ghi chú
+A,majority (mốc sàn),majority,comment,0.3574803383443313,0.0002541017588695,baseline cổ điển (cấu hình notebook 02)
+A,TF-IDF + LR (notebook 02/03),tfidf_lr,comment,0.7002041621509061,0.0209189961455091,baseline cổ điển (cấu hình notebook 02)
+A,"roberta-base, comment (03)",roberta-base,comment,0.727394221479094,0.0097725099365741,lr2e-5 ep4 bs16 len128
+A,roberta-base + context tốt nhất (04),roberta-base,pair_title_desc,0.7288215760549155,0.0052873913498597,"C2, len256"
+A,đổi encoder tốt nhất (04),cardiffnlp/twitter-roberta-base-hate-latest,comment,0.7334829830000003,0.0115217705948011,"đổi encoder, len128"
+A,multi-task / bias tốt nhất (05),cardiffnlp/twitter-roberta-base-hate-latest,comment,0.7352242940762359,0.0108852291693153,MT + cw + bias lồng nhau
+A,"hệ thống cuối (08, lồng nhau)",final: top-3 mean,mt_twhate_comment+mtcw_twhate_comment+twhate_comment,0.7418598715502454,0.0102210126943635,"hệ thống cuối, điểm lồng nhau"
+B,majority (mốc sàn),majority,comment,0.2133757714752597,1.4777874765662948e-05,baseline cổ điển (cấu hình notebook 02)
+B,TF-IDF + LR (notebook 02/03),tfidf_lr,comment,0.5248540120152702,0.0138308335101997,baseline cổ điển (cấu hình notebook 02)
+B,"roberta-base, comment (03)",roberta-base,comment,0.5855794206749485,0.0179042900380616,lr2e-5 ep4 bs16 len128
+B,roberta-base + context tốt nhất (04),roberta-base,pair_title,0.5807786394512683,0.0090179227403266,"C1, len128"
+B,đổi encoder tốt nhất (04),cardiffnlp/twitter-roberta-base-hate-latest,comment,0.5870310925298601,0.0113651766383292,"đổi encoder, len128"
+B,multi-task / bias tốt nhất (05),cardiffnlp/twitter-roberta-base-hate-latest,comment,0.5956907171256329,0.0184381197266522,MT + cw + bias lồng nhau
+B,"hệ thống cuối (08, lồng nhau)",final: best single,mt_twhate_comment,0.6006157897306655,0.0259337601121054,"hệ thống cuối, điểm lồng nhau"
