@@ -1,0 +1,70 @@
+{
+  "evaluation_scope": "development_oof_decision_crossfit",
+  "source_fingerprint": "cb5eac3ee1b2ff8968e8fb0374ad9857e3aff789bc033c0af9edc5dd3b752d5a",
+  "inputs_sha256": {
+    "data/splits/folds_en.csv": "74f45b16ca34c366ae3333c9c5bf184ab1caaf22ac04bec42fb4f3b14973f65e",
+    "../StereoQueerEval_SemEval-2027/StereoQueerEval_training/StereoQueerEval_EN_training.tsv": "783230dc1e6d07a85e1d7dece539db78ab4c3f27daea99e151346a0fec0277f7",
+    "scripts/run_p3_selection.py": "e7dd81a77bb85c532763e89b90b1c60e72504bc4a4a6fcb8f96a828d06470bf9",
+    "src/sqe/selection.py": "191da2212097048a51afd42945bc636fb4fd694fd8ca85e576a061116680ab36",
+    "src/sqe/decision.py": "31ae31cf57610718fd46e5f262e64a132142232ce32d05fb2a1da9072b3b749f",
+    "src/sqe/validation.py": "11f22966fac6531e97bddcc4463ab64232efb253414b368e49b82fd8d277fc3c",
+    "src/sqe/metrics.py": "753f882951d3e2a37be8930ed5bd001eb31a0d0b4b5a0c1cbc3b6a8745216bcb",
+    "src/sqe/results.py": "fa32ef12ee5591845482e454cfa8c6d9426c861883354fbd0755511a219318cd",
+    "src/sqe/classical.py": "bcea351e5cb09a2badd183aedb93db42d0500a7b70b15c3fc0db73dc01e45f4e",
+    "outputs/oof/deberta_p7_comment_A.csv": "aaae1df84b15776b5ba37ebd811868db268a7bedd95d220e6fde16e7c37268d2",
+    "outputs/oof/mt_twhate_comment_A.csv": "8995d1a30340a274576e9623ec8d8d6116f16ab712befb7848e776cf997841e3",
+    "outputs/oof/mtcw_twhate_comment_A.csv": "345bfc39d8c097a693a2e64bc0d040dc0d63054c447113f915b2053fb1bc5fef",
+    "outputs/oof/roberta_comment_A.csv": "7821db9212802c941ed93304eeed7f9778632564ab3c485a885efb899c33f757",
+    "outputs/oof/roberta_concat_tdc_A.csv": "6881e2e574679d4fcddd175b84796b461cad89add0d95ee9e2dbeb48de6cba84",
+    "outputs/oof/roberta_pair_title_A.csv": "18248c19dc83cb33e2dd9c753e4e75746add7aa2e7992778bc211a41043cbfd9",
+    "outputs/oof/roberta_pair_title_desc_A.csv": "8d55568e51b8c5e1c553bbe58f1b3528f8435169397e13dbceeade7601ed676f",
+    "outputs/oof/tfidf_comment_A.csv": "8a81a01036b884001cb4739827ed912d5f7b828676305629ea5f6fbdfb506e98",
+    "outputs/oof/tfidf_comment_title_A.csv": "514f228a6f6ec66d1dbe8006ee6db52a09150d798858e355beb8438715c26a59",
+    "outputs/oof/twhate_comment_A.csv": "2d5cdaeb9e18c9d9a67f03c2fe6052ae8be21eebab879a69a3e283f50744d87d",
+    "outputs/runs/deberta_p7_comment_A.json": "ec64db2547cc71fc33144ef2e8ac7e3955344bb6a0c5db2d0b9e4fa7633b7332",
+    "outputs/runs/mt_twhate_comment_AB.json": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
+    "outputs/runs/mtcw_twhate_comment_AB.json": "0e1ed2428e0a6a2d5bd047b28a54a947a2ac1c1f9a81c3ff182acc1701b3d546",
+    "outputs/runs/roberta_comment_A.json": "ed8a9f875bc96352950fd2464d943b0a015fc68189a02af93ab7eab83dac3214",
+    "outputs/runs/roberta_concat_tdc_A.json": "132c2628cfb5b2b07ddbcfd15dd5419ddcffcc00ab59002c51f49ce8db50f0b2",
+    "outputs/runs/roberta_pair_title_A.json": "eb1154cd7dff9776540788b9bfe1e83eed7f0e7a122da7b05dd18e293b579adc",
+    "outputs/runs/roberta_pair_title_desc_A.json": "30e8df0ebdaeed7b20d15575c66780c3cf2fa1900a4725b9dfe1946c9ed261fa",
+    "outputs/runs/twhate_comment_A.json": "6a5cf8cc220a9864a5eb283183b3481b333ebe3ef73e0076c35744a24f66e2ed",
+    "outputs/oof/deberta_p7_comment_B.csv": "8a64458a80401d207462073d7906039549bdecd4e485a9ba3e227570a641f499",
+    "outputs/oof/mt_twhate_comment_B.csv": "64571e9b35d69b138bd8907bb232b18cd54b178df0786b5e3bd0d21fc68938d6",
+    "outputs/oof/mtcw_twhate_comment_B.csv": "bee731307c240dae739290ec3c117855e1444ebc11eea3d6b3b1230d5cc10166",
+    "outputs/oof/roberta_comment_B.csv": "d2f1eb8b65bfa670cb3f7b28007556d1c8856496416851f00373e9a8abbed208",
+    "outputs/oof/roberta_concat_tdc_B.csv": "42c6ac547a1fee2440599eb6a00ebdb2e866111857f9e3261976065a6ee25d39",
+    "outputs/oof/roberta_pair_title_B.csv": "ca37cdc299e7d889208004c7d304744d576a3339be376cf23dbf65aed3ff07ab",
+    "outputs/oof/roberta_pair_title_desc_B.csv": "051623ed2c0dd64c43c44c29ed013c62b8e44c28f0faf7fb7487357b493d1b3b",
+    "outputs/oof/tfidf_comment_B.csv": "ace9532015d861c08af1077df23b6fc05a2fcf8703c1b392872972a2909fb2fb",
+    "outputs/oof/tfidf_comment_title_B.csv": "ec0d2809d001f3f570945330f8bc120cc8e3522306e7ba012cc80673fe23f7a5",
+    "outputs/oof/twhate_comment_B.csv": "783515da054dc6726a0326600ea86a39dc257e60e43c47e0811b0892f6e1fa65",
+    "outputs/runs/deberta_p7_comment_B.json": "50c9b58ac9a4ada18bc88fc3b8512cc591ae14fe2c92bf888051972c86d3a35c",
+    "outputs/runs/roberta_comment_B.json": "d5ee79e510943c6c46a484ae1b15360d735fd0f3941ca5d2a599e1c47a376dbb",
+    "outputs/runs/roberta_concat_tdc_B.json": "2d25bb167fb55c1778731afe27ee4c098a324570b118f2f236e704154ff8fa86",
+    "outputs/runs/roberta_pair_title_B.json": "b5390505a7c5cf825fe973bddbb0c244e2861a453e533da05be86b84103e2b28",
+    "outputs/runs/roberta_pair_title_desc_B.json": "cbaf709efafda6e61c947ef30dea954d456eacdfe0b1e41fb3735b2a1bf2f1a1",
+    "outputs/runs/twhate_comment_B.json": "e427ebcbe4650e3b5d24c7870fadda949dcff80b537e0b66374c1306853bac65"
+  },
+  "rejected_candidates": [
+    {
+      "subtask": "A",
+      "model": "deberta_comment",
+      "reason": "deberta_comment/A: Nonfinite probabilities (NaN/Inf); failed run cannot be scored."
+    },
+    {
+      "subtask": "B",
+      "model": "deberta_comment",
+      "reason": "deberta_comment/B: Nonfinite probabilities (NaN/Inf); failed run cannot be scored."
+    }
+  ],
+  "limitations": [
+    "Development OOF only, not nested CV of full training pipeline.",
+    "Strategy chosen using these development scores; no independent selection estimate.",
+    "No training, checkpoint saving, GPU run or official submission in P3."
+  ],
+  "selected_oof_sha256": {
+    "A": "7b8773d159542e8f5dff517768074a4c8d80023f15ec5210b3b1d7296fd6d71e",
+    "B": "a35167fcccce3b6daaf9272cc8c734b5fa54b9bb7e40fd1b6cd60f5170149e9b"
+  }
+}

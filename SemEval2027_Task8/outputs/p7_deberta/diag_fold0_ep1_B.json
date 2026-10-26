@@ -1,0 +1,40 @@
+{
+ "status": "ok",
+ "passed": false,
+ "precision": "torch.bfloat16",
+ "gpu": "NVIDIA RTX A2000 Laptop GPU",
+ "transformers": "5.14.1",
+ "torch": "2.11.0+cu128",
+ "cfg": {
+  "model": "microsoft/deberta-v3-base",
+  "input": "comment",
+  "max_length": 128,
+  "lr": 2e-05,
+  "epochs": 1,
+  "batch_size": 8,
+  "accum": 2,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "dropout": 0.1,
+  "class_weight": false,
+  "loss_weights": null,
+  "grad_ckpt": false,
+  "seed": 42
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 1.0475222926873426,
+   "val_f1_B": 0.2133938706015891
+  }
+ ],
+ "error": "",
+ "minutes": 2.47,
+ "peak_gpu_gb": 4.02,
+ "reference_epoch1_fold0": {
+  "roberta_comment": 0.38788867669754473,
+  "twhate_comment": 0.5050620326683212
+ },
+ "majority_B": 0.2134,
+ "note": "Chẩn đoán 1 fold x 1 epoch; KHÔNG phải điểm CV, không đưa vào all_results/P3."
+}

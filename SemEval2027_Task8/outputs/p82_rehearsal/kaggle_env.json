@@ -1,0 +1,51 @@
+{
+ "smoke": false,
+ "precision": "auto",
+ "gpu": "Tesla T4",
+ "torch": "2.11.0+cu128",
+ "transformers": "5.16.1",
+ "python": "3.13.15",
+ "bundle_manifest": {
+  "format": "sqe_p82_v1",
+  "recipe_strategy": {
+   "A": "stacking (logistic regression)",
+   "B": "top-3 mean + bias"
+  },
+  "files_sha256": {
+   "SemEval2027_Task8/data/splits/folds_en.csv": "74f45b16ca34c366ae3333c9c5bf184ab1caaf22ac04bec42fb4f3b14973f65e",
+   "SemEval2027_Task8/outputs/runs/deberta_p7_comment_A.json": "ec64db2547cc71fc33144ef2e8ac7e3955344bb6a0c5db2d0b9e4fa7633b7332",
+   "SemEval2027_Task8/outputs/runs/deberta_p7_comment_B.json": "50c9b58ac9a4ada18bc88fc3b8512cc591ae14fe2c92bf888051972c86d3a35c",
+   "SemEval2027_Task8/outputs/runs/mt_twhate_comment_AB.json": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
+   "SemEval2027_Task8/outputs/runs/mtcw_twhate_comment_AB.json": "0e1ed2428e0a6a2d5bd047b28a54a947a2ac1c1f9a81c3ff182acc1701b3d546",
+   "SemEval2027_Task8/outputs/runs/roberta_comment_A.json": "ed8a9f875bc96352950fd2464d943b0a015fc68189a02af93ab7eab83dac3214",
+   "SemEval2027_Task8/outputs/runs/roberta_comment_B.json": "d5ee79e510943c6c46a484ae1b15360d735fd0f3941ca5d2a599e1c47a376dbb",
+   "SemEval2027_Task8/outputs/runs/roberta_concat_tdc_A.json": "132c2628cfb5b2b07ddbcfd15dd5419ddcffcc00ab59002c51f49ce8db50f0b2",
+   "SemEval2027_Task8/outputs/runs/roberta_concat_tdc_B.json": "2d25bb167fb55c1778731afe27ee4c098a324570b118f2f236e704154ff8fa86",
+   "SemEval2027_Task8/outputs/runs/roberta_pair_title_A.json": "eb1154cd7dff9776540788b9bfe1e83eed7f0e7a122da7b05dd18e293b579adc",
+   "SemEval2027_Task8/outputs/runs/roberta_pair_title_B.json": "b5390505a7c5cf825fe973bddbb0c244e2861a453e533da05be86b84103e2b28",
+   "SemEval2027_Task8/outputs/runs/roberta_pair_title_desc_A.json": "30e8df0ebdaeed7b20d15575c66780c3cf2fa1900a4725b9dfe1946c9ed261fa",
+   "SemEval2027_Task8/outputs/runs/roberta_pair_title_desc_B.json": "cbaf709efafda6e61c947ef30dea954d456eacdfe0b1e41fb3735b2a1bf2f1a1",
+   "SemEval2027_Task8/outputs/runs/twhate_comment_A.json": "6a5cf8cc220a9864a5eb283183b3481b333ebe3ef73e0076c35744a24f66e2ed",
+   "SemEval2027_Task8/outputs/runs/twhate_comment_B.json": "e427ebcbe4650e3b5d24c7870fadda949dcff80b537e0b66374c1306853bac65",
+   "SemEval2027_Task8/outputs/submissions/recipe.json": "53bf7bb2b60f2264e91bfc5f4f09143893df4af8ebe73cf7f9fc8cc9a7afb6ab",
+   "SemEval2027_Task8/scripts/predict_test.py": "b334341ba842651957a1ccfd42b0e7db1d10f214bca5c7a663834691e605a3b6",
+   "SemEval2027_Task8/src/sqe/__init__.py": "ccea8bb50eb32e4396586680950f9c12499e2c62d981bbb88c1c485f7ce74432",
+   "SemEval2027_Task8/src/sqe/checkpoint.py": "c3860e36b3f72633645651025480a809684a22537ce139a6db7039bcafb3f3e8",
+   "SemEval2027_Task8/src/sqe/classical.py": "bcea351e5cb09a2badd183aedb93db42d0500a7b70b15c3fc0db73dc01e45f4e",
+   "SemEval2027_Task8/src/sqe/data.py": "4eba76d415bc319dd3f7f9053558b39c2393771c2977f084b85481d26edbdbd5",
+   "SemEval2027_Task8/src/sqe/decision.py": "31ae31cf57610718fd46e5f262e64a132142232ce32d05fb2a1da9072b3b749f",
+   "SemEval2027_Task8/src/sqe/llm.py": "18e5d6a8b8863dc485edf63f9b06dfc1348571f0e2f08f00fac63753abe7ee2e",
+   "SemEval2027_Task8/src/sqe/llm_eval.py": "4073134bcc5ccd1cacd7f3183e8cb5410adf302ded6fd603033b2ca2f38677ac",
+   "SemEval2027_Task8/src/sqe/metrics.py": "753f882951d3e2a37be8930ed5bd001eb31a0d0b4b5a0c1cbc3b6a8745216bcb",
+   "SemEval2027_Task8/src/sqe/p4.py": "dd1f8f7a857ba6ab3237888adc859b62c0984e929c95ba1c08177cd0120b2e04",
+   "SemEval2027_Task8/src/sqe/results.py": "fa32ef12ee5591845482e454cfa8c6d9426c861883354fbd0755511a219318cd",
+   "SemEval2027_Task8/src/sqe/selection.py": "191da2212097048a51afd42945bc636fb4fd694fd8ca85e576a061116680ab36",
+   "SemEval2027_Task8/src/sqe/stacking.py": "fe983a182907944cf2f65e1b3d724a75bfefc7a61ad3fdb701d2affb52d820c9",
+   "SemEval2027_Task8/src/sqe/submission.py": "5f1ecf05279753612e86f6c257c60a2385ce10f4c8bb2142021d4cab118f8a2d",
+   "SemEval2027_Task8/src/sqe/testtime.py": "681d2b96e7d4ce579071ae8ab17d99ef4f8c999a648f8ea0cae45ef5125fb0c0",
+   "SemEval2027_Task8/src/sqe/train.py": "b5cc550c047e333538f842619fa98af14ae77cfc409419a2dc232bfce9118ee1",
+   "SemEval2027_Task8/src/sqe/validation.py": "11f22966fac6531e97bddcc4463ab64232efb253414b368e49b82fd8d277fc3c",
+   "StereoQueerEval_SemEval-2027/StereoQueerEval_training/StereoQueerEval_EN_training.tsv": "783230dc1e6d07a85e1d7dece539db78ab4c3f27daea99e151346a0fec0277f7"
+  }
+ }
+}

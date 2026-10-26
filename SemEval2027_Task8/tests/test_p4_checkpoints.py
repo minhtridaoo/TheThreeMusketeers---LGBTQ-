@@ -91,7 +91,9 @@ def test_tfidf_roundtrip_preserves_feature_pipeline_and_label_order(tmp_path):
 
 
 def test_recipe_has_seven_unique_components_and_correct_scope():
-    recipe = json.loads((ROOT / "outputs/submissions/recipe.json").read_text(encoding="utf-8"))
+    # P4 đã chạy với recipe P3 ngày 18/10; recipe hiện hành đổi sau P7/P8.2 (26/10) và dùng sqe.testtime.
+    recipe = json.loads((ROOT / "outputs/audit/2026-10-26-p3-rerun/before/outputs/submissions/recipe.json")
+                        .read_text(encoding="utf-8"))
     specs = component_plan(recipe)
     assert len(specs) == 7
     assert sum(s["kind"] == "transformer" for s in specs) == 5

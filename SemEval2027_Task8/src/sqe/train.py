@@ -17,6 +17,7 @@ import json
 import os
 import random
 import time
+import unicodedata
 
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
@@ -80,8 +81,11 @@ class MultiHeadClassifier(nn.Module):
     def __init__(self, model_name, heads, dropout=0.1, grad_ckpt=False, encoder_config=None):
         super().__init__()
         # Rebuild saved architecture locally; load state_dict separately for offline inference.
+        # dtype=float32: transformers 5.x mặc định nạp đúng kiểu đã lưu trong checkpoint.
+        # deberta-v3-base lưu ở fp16 → train thẳng trên trọng số fp16 → NaN (P7, 26/10).
+        # roberta-base / twitter-roberta vốn đã là fp32 nên không đổi gì với các run cũ.
         self.encoder = (AutoModel.from_config(encoder_config) if encoder_config is not None
-                        else AutoModel.from_pretrained(model_name))
+                        else AutoModel.from_pretrained(model_name, dtype=torch.float32))
         if grad_ckpt:
             self.encoder.gradient_checkpointing_enable()
         h = self.encoder.config.hidden_size
@@ -107,6 +111,11 @@ def encode(tok, df, cfg):
     phần context (title/description), nên comment ít khi bị mất.
     """
     a, b = build_inputs(df, cfg["input"])
+    if cfg.get("normalize") == "nfkc":
+        # Tokenizer fast của DeBERTa-v3 (transformers 5.x) thiếu bước chuẩn hoá NFKC mà
+        # SentencePiece gốc có → "…", emoji ghép thành [UNK]. Chỉ bật khi cfg yêu cầu (P7).
+        nfkc = lambda xs: [unicodedata.normalize("NFKC", x) for x in xs]
+        a, b = nfkc(a), (nfkc(b) if b is not None else None)
     kw = dict(truncation=True, max_length=cfg["max_length"])
     enc = tok(a, b, **kw) if b is not None else tok(a, **kw)
     return enc["input_ids"]

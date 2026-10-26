@@ -1,0 +1,86 @@
+{
+ "minutes": {
+  "deberta_p7_comment@A": 16.2,
+  "mt_twhate_comment@AB": 13.75,
+  "mtcw_twhate_comment@AB": 13.67,
+  "roberta_comment@A": 13.71,
+  "roberta_concat_tdc@A": 30.98,
+  "roberta_pair_title@A": 14.52,
+  "roberta_pair_title_desc@A": 31.06,
+  "tfidf_comment@A": 0.12,
+  "tfidf_comment_title@A": 0.17,
+  "twhate_comment@A": 13.67,
+  "deberta_p7_comment@B": 16.0
+ },
+ "components_fresh_oof": {
+  "deberta_p7_comment/A": 0.7386,
+  "mt_twhate_comment/A": 0.7276,
+  "mtcw_twhate_comment/A": 0.7254,
+  "roberta_comment/A": 0.7087,
+  "roberta_concat_tdc/A": 0.6961,
+  "roberta_pair_title/A": 0.7173,
+  "roberta_pair_title_desc/A": 0.7247,
+  "tfidf_comment/A": 0.6811,
+  "tfidf_comment_title/A": 0.6728,
+  "twhate_comment/A": 0.7192,
+  "deberta_p7_comment/B": 0.575,
+  "mt_twhate_comment/B": 0.5657,
+  "mtcw_twhate_comment/B": 0.5724
+ },
+ "system_fresh_oof": {
+  "A": {
+   "strategy": "stacking (logistic regression)",
+   "macro_f1": 0.7588,
+   "std": 0.0133,
+   "bias_refit": null
+  },
+  "B": {
+   "strategy": "top-3 mean + bias",
+   "macro_f1": 0.5789,
+   "std": 0.018,
+   "bias_refit": [
+    0.0,
+    0.6,
+    0.4
+   ]
+  }
+ },
+ "label_distribution": {
+  "A": {
+   "yes": 0.5142,
+   "no": 0.4858
+  },
+  "B": {
+   "no": 0.4057,
+   "yes_explicit": 0.3155,
+   "yes_implicit": 0.2788
+  }
+ },
+ "pseudo_test_scores": {
+  "A": {
+   "macro_f1": 0.7458,
+   "f1_no": 0.7564,
+   "f1_yes": 0.7352
+  },
+  "B": {
+   "macro_f1": 0.6365,
+   "f1_no": 0.7505,
+   "f1_yes_implicit": 0.5093,
+   "f1_yes_explicit": 0.6496
+  }
+ },
+ "mode": "pseudo_fold0",
+ "precision": "auto",
+ "minutes_total": 164.0,
+ "n_train": 2390,
+ "n_test": 599,
+ "recipe_strategy": {
+  "A": "stacking (logistic regression)",
+  "B": "top-3 mean + bias"
+ },
+ "environment": {
+  "torch": "2.11.0+cu128",
+  "transformers": "5.16.1",
+  "gpu": "Tesla T4"
+ }
+}

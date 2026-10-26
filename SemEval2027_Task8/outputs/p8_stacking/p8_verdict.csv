@@ -1,0 +1,5 @@
+﻿subtask,hệ thống,Δ,thắng,NHẬN?
+A,stack_A,0.0127,5/5,✅ nhận
+A,stack_A+B,0.0057,4/5,✅ nhận
+B,stack_B,0.0093,3/5,❌ không nhận
+B,stack_B+A,0.0013,2/5,❌ không nhận

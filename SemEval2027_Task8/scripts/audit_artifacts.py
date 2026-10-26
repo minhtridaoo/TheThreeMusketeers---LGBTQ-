@@ -48,7 +48,8 @@ def audit():
               "fold_sizes":{str(k):int(v) for k,v in df.fold.value_counts().sort_index().items()},
               "video_disjoint":bool(df.groupby("video_id").fold.nunique().eq(1).all())},
               "notebooks":[], "llm":[], "oof":[]}
-    for path in sorted((ROOT / "notebooks").glob("*.ipynb")):
+    for path in sorted(p for p in (ROOT / "notebooks").rglob("*.ipynb")  # 01–08 nằm trong notebooks/Baseline/ từ 26/10
+                       if not {"_ban_goc", ".ipynb_checkpoints"} & set(p.parts)):
         nb=read_json(path)
         code=[c for c in nb["cells"] if c["cell_type"]=="code"]
         errors=[o.get("evalue") for c in code for o in c.get("outputs",[]) if o.get("output_type")=="error"]

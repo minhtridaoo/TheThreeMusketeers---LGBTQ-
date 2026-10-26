@@ -1,13 +1,24 @@
 {
   "A": {
-    "strategy": "greedy + bias",
+    "strategy": "stacking (logistic regression)",
     "components": {
+      "deberta_p7_comment": 1.0,
       "mt_twhate_comment": 1.0,
       "mtcw_twhate_comment": 1.0,
+      "roberta_comment": 1.0,
+      "roberta_concat_tdc": 1.0,
       "roberta_pair_title": 1.0,
       "roberta_pair_title_desc": 1.0,
-      "tfidf_comment": 4.0,
-      "tfidf_comment_title": 2.0
+      "tfidf_comment": 1.0,
+      "tfidf_comment_title": 1.0,
+      "twhate_comment": 1.0
+    },
+    "stacker": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "standardize": true,
+      "max_iter": 5000,
+      "features": "binary: logit log(p1/p0); multiclass: log p per class; clip [1e-6, 1]"
     },
     "bias": [
       0.0,
@@ -17,16 +28,42 @@
       "no",
       "yes"
     ],
-    "development_macro_f1": 0.7460196470173812,
+    "development_macro_f1": 0.758699006794888,
     "evaluation_scope": "development_oof_decision_crossfit",
     "selection_rule": {
-      "best_scoring_strategy": "greedy + bias",
-      "best_simple_strategy": "best single + bias",
-      "gain_over_simple": 0.012238806849993011,
-      "minimum_ensemble_gain": 0.005,
-      "rule": "Choose best ensemble only if gain over best single (with/without bias) >= 0.005"
+      "rule": "P8 (26/10): nhận stacking nếu hơn recipe hiện tại ≥ 0,005 và thắng 5/5 fold",
+      "delta_vs_previous": 0.0127,
+      "wins": "5/5",
+      "variants_tried": [
+        "stack_A",
+        "stack_A+B",
+        "stack_B",
+        "stack_B+A"
+      ]
     },
     "component_configs": {
+      "deberta_p7_comment": {
+        "path": "outputs/runs/deberta_p7_comment_A.json",
+        "sha256": "ec64db2547cc71fc33144ef2e8ac7e3955344bb6a0c5db2d0b9e4fa7633b7332",
+        "cfg": {
+          "model": "microsoft/deberta-v3-base",
+          "input": "comment",
+          "max_length": 128,
+          "lr": 2e-05,
+          "epochs": 4,
+          "batch_size": 8,
+          "accum": 2,
+          "warmup": 0.1,
+          "weight_decay": 0.01,
+          "dropout": 0.1,
+          "class_weight": false,
+          "loss_weights": null,
+          "grad_ckpt": false,
+          "seed": 42,
+          "normalize": "nfkc",
+          "amp": "torch.bfloat16"
+        }
+      },
       "mt_twhate_comment": {
         "path": "outputs/runs/mt_twhate_comment_AB.json",
         "sha256": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
@@ -62,6 +99,46 @@
           "weight_decay": 0.01,
           "dropout": 0.1,
           "class_weight": true,
+          "loss_weights": null,
+          "grad_ckpt": false,
+          "seed": 42
+        }
+      },
+      "roberta_comment": {
+        "path": "outputs/runs/roberta_comment_A.json",
+        "sha256": "ed8a9f875bc96352950fd2464d943b0a015fc68189a02af93ab7eab83dac3214",
+        "cfg": {
+          "model": "roberta-base",
+          "input": "comment",
+          "max_length": 128,
+          "lr": 2e-05,
+          "epochs": 4,
+          "batch_size": 16,
+          "accum": 1,
+          "warmup": 0.1,
+          "weight_decay": 0.01,
+          "dropout": 0.1,
+          "class_weight": false,
+          "loss_weights": null,
+          "grad_ckpt": false,
+          "seed": 42
+        }
+      },
+      "roberta_concat_tdc": {
+        "path": "outputs/runs/roberta_concat_tdc_A.json",
+        "sha256": "132c2628cfb5b2b07ddbcfd15dd5419ddcffcc00ab59002c51f49ce8db50f0b2",
+        "cfg": {
+          "model": "roberta-base",
+          "input": "concat_tdc",
+          "max_length": 256,
+          "lr": 2e-05,
+          "epochs": 4,
+          "batch_size": 16,
+          "accum": 1,
+          "warmup": 0.1,
+          "weight_decay": 0.01,
+          "dropout": 0.1,
+          "class_weight": false,
           "loss_weights": null,
           "grad_ckpt": false,
           "seed": 42
@@ -106,48 +183,112 @@
           "grad_ckpt": false,
           "seed": 42
         }
+      },
+      "twhate_comment": {
+        "path": "outputs/runs/twhate_comment_A.json",
+        "sha256": "6a5cf8cc220a9864a5eb283183b3481b333ebe3ef73e0076c35744a24f66e2ed",
+        "cfg": {
+          "model": "cardiffnlp/twitter-roberta-base-hate-latest",
+          "input": "comment",
+          "max_length": 128,
+          "lr": 2e-05,
+          "epochs": 4,
+          "batch_size": 16,
+          "accum": 1,
+          "warmup": 0.1,
+          "weight_decay": 0.01,
+          "dropout": 0.1,
+          "class_weight": false,
+          "loss_weights": null,
+          "grad_ckpt": false,
+          "seed": 42
+        }
       }
     },
     "selected_strategy_oof": "outputs/selection/selected_A.csv",
-    "parameters_fit_scope": "all existing development OOF after strategy selection",
-    "score_scope_note": "Score evaluates fold-specific decision fits; final all-OOF recipe has no independent test score.",
-    "source_fingerprint": "2904d685b24102f4afd58c611f779fddb074d2402ed9f156096c863502a3b0d2",
+    "parameters_fit_scope": "Stacker được fit lại trên OOF mới khi dự đoán test (sqe.testtime)",
+    "score_scope_note": "Development OOF cross-fit (stacker fit ngoài fold đang chấm); không phải điểm test.",
     "source_oof_sha256": {
+      "deberta_p7_comment": "aaae1df84b15776b5ba37ebd811868db268a7bedd95d220e6fde16e7c37268d2",
       "mt_twhate_comment": "8995d1a30340a274576e9623ec8d8d6116f16ab712befb7848e776cf997841e3",
       "mtcw_twhate_comment": "345bfc39d8c097a693a2e64bc0d040dc0d63054c447113f915b2053fb1bc5fef",
+      "roberta_comment": "7821db9212802c941ed93304eeed7f9778632564ab3c485a885efb899c33f757",
+      "roberta_concat_tdc": "6881e2e574679d4fcddd175b84796b461cad89add0d95ee9e2dbeb48de6cba84",
       "roberta_pair_title": "18248c19dc83cb33e2dd9c753e4e75746add7aa2e7992778bc211a41043cbfd9",
       "roberta_pair_title_desc": "8d55568e51b8c5e1c553bbe58f1b3528f8435169397e13dbceeade7601ed676f",
       "tfidf_comment": "8a81a01036b884001cb4739827ed912d5f7b828676305629ea5f6fbdfb506e98",
-      "tfidf_comment_title": "514f228a6f6ec66d1dbe8006ee6db52a09150d798858e355beb8438715c26a59"
+      "tfidf_comment_title": "514f228a6f6ec66d1dbe8006ee6db52a09150d798858e355beb8438715c26a59",
+      "twhate_comment": "2d5cdaeb9e18c9d9a67f03c2fe6052ae8be21eebab879a69a3e283f50744d87d"
+    },
+    "rejected_candidates": [
+      "deberta_comment"
+    ],
+    "previous_recipe": {
+      "strategy": "greedy + bias",
+      "components": {
+        "mt_twhate_comment": 1.0,
+        "mtcw_twhate_comment": 1.0,
+        "roberta_pair_title": 1.0,
+        "roberta_pair_title_desc": 1.0,
+        "tfidf_comment": 4.0,
+        "tfidf_comment_title": 2.0
+      },
+      "bias": [
+        0.0,
+        0.0
+      ],
+      "development_macro_f1": 0.7460196470173812
     }
   },
   "B": {
     "strategy": "top-3 mean + bias",
     "components": {
+      "deberta_p7_comment": 1.0,
       "mt_twhate_comment": 1.0,
-      "mtcw_twhate_comment": 1.0,
-      "twhate_comment": 1.0
+      "mtcw_twhate_comment": 1.0
     },
     "bias": [
       0.0,
       0.2,
-      0.1
+      0.5
     ],
     "labels": [
       "no",
       "yes_implicit",
       "yes_explicit"
     ],
-    "development_macro_f1": 0.6074550860206245,
+    "development_macro_f1": 0.615870264742729,
     "evaluation_scope": "development_oof_decision_crossfit",
     "selection_rule": {
       "best_scoring_strategy": "top-3 mean + bias",
-      "best_simple_strategy": "best single",
-      "gain_over_simple": 0.0068392962899589405,
+      "best_simple_strategy": "best single + bias",
+      "gain_over_simple": 0.019679144383387914,
       "minimum_ensemble_gain": 0.005,
       "rule": "Choose best ensemble only if gain over best single (with/without bias) >= 0.005"
     },
     "component_configs": {
+      "deberta_p7_comment": {
+        "path": "outputs/runs/deberta_p7_comment_B.json",
+        "sha256": "50c9b58ac9a4ada18bc88fc3b8512cc591ae14fe2c92bf888051972c86d3a35c",
+        "cfg": {
+          "model": "microsoft/deberta-v3-base",
+          "input": "comment",
+          "max_length": 128,
+          "lr": 2e-05,
+          "epochs": 4,
+          "batch_size": 8,
+          "accum": 2,
+          "warmup": 0.1,
+          "weight_decay": 0.01,
+          "dropout": 0.1,
+          "class_weight": false,
+          "loss_weights": null,
+          "grad_ckpt": false,
+          "seed": 42,
+          "normalize": "nfkc",
+          "amp": "torch.bfloat16"
+        }
+      },
       "mt_twhate_comment": {
         "path": "outputs/runs/mt_twhate_comment_AB.json",
         "sha256": "e12f07a333e35941c5f08b31a2116312868c549dda5622191cf2665d2983b36e",
@@ -187,36 +328,22 @@
           "grad_ckpt": false,
           "seed": 42
         }
-      },
-      "twhate_comment": {
-        "path": "outputs/runs/twhate_comment_B.json",
-        "sha256": "e427ebcbe4650e3b5d24c7870fadda949dcff80b537e0b66374c1306853bac65",
-        "cfg": {
-          "model": "cardiffnlp/twitter-roberta-base-hate-latest",
-          "input": "comment",
-          "max_length": 128,
-          "lr": 2e-05,
-          "epochs": 4,
-          "batch_size": 16,
-          "accum": 1,
-          "warmup": 0.1,
-          "weight_decay": 0.01,
-          "dropout": 0.1,
-          "class_weight": false,
-          "loss_weights": null,
-          "grad_ckpt": false,
-          "seed": 42
-        }
       }
     },
     "selected_strategy_oof": "outputs/selection/selected_B.csv",
     "parameters_fit_scope": "all existing development OOF after strategy selection",
     "score_scope_note": "Score evaluates fold-specific decision fits; final all-OOF recipe has no independent test score.",
-    "source_fingerprint": "2904d685b24102f4afd58c611f779fddb074d2402ed9f156096c863502a3b0d2",
+    "source_fingerprint": "cb5eac3ee1b2ff8968e8fb0374ad9857e3aff789bc033c0af9edc5dd3b752d5a",
     "source_oof_sha256": {
+      "deberta_p7_comment": "8a64458a80401d207462073d7906039549bdecd4e485a9ba3e227570a641f499",
       "mt_twhate_comment": "64571e9b35d69b138bd8907bb232b18cd54b178df0786b5e3bd0d21fc68938d6",
-      "mtcw_twhate_comment": "bee731307c240dae739290ec3c117855e1444ebc11eea3d6b3b1230d5cc10166",
-      "twhate_comment": "783515da054dc6726a0326600ea86a39dc257e60e43c47e0811b0892f6e1fa65"
+      "mtcw_twhate_comment": "bee731307c240dae739290ec3c117855e1444ebc11eea3d6b3b1230d5cc10166"
+    },
+    "p7_decision": {
+      "decision": "nhận recipe mới (có DeBERTa)",
+      "delta": 0.0084,
+      "wins": "5/5",
+      "tradeoff": "F1 no 0,7391→0,7507; implicit 0,4631→0,4426; explicit 0,6202→0,6543"
     }
   }
 }

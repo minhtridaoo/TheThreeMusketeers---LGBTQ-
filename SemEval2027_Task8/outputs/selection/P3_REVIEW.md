@@ -1,5 +1,7 @@
 # P3 — Chọn hệ thống cuối từ OOF đã lưu
 
+> **Cập nhật 26/10/2026 (sau P7):** P3 được chạy lại với thêm ứng viên DeBERTa. **A giữ nguyên** recipe mô tả dưới đây (bản mới chỉ +0,0011, thắng 2/5). **B đổi** sang top-3 mean + bias gồm `deberta_p7_comment`, `mt_twhate_comment`, `mtcw_twhate_comment`: **0,6159** (+0,0084, 5/5). Phần dưới mô tả lượt 18/10; số liệu B hiện hành xem ROADMAP mục 6.1 và `outputs/audit/2026-10-26-p3-rerun/`.
+
 Kiểm chứng ngày **18/10/2026**. Scope A/B English. **P3 phần kỹ thuật đã hoàn thành**, chưa train mới, chưa lưu checkpoint hoặc nộp test. P4 là bước tiếp theo.
 
 ## 1. Bản ghi chú P2 đã ổn

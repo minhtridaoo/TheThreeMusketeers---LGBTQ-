@@ -216,7 +216,7 @@ def test_full_exports_merge_and_import(data, tmp_path, monkeypatch):
 
 
 def test_bundle_and_notebooks(tmp_path):
-    for path in [PROJECT / "notebooks/06_llm_zero_few_shot.ipynb", BASE / "kaggle/kaggle_runner_06.ipynb"]:
+    for path in [next((PROJECT / "notebooks").rglob("06_llm_zero_few_shot.ipynb")), BASE / "kaggle/kaggle_runner_06.ipynb"]:
         nb = nbformat.read(path, as_version=4)
         nbformat.validate(nb)
         for cell in nb.cells:

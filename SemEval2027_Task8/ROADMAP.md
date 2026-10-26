@@ -1,5 +1,5 @@
 # Roadmap và pipeline — CS221 / StereoQueerEval
-**Một tài liệu kế hoạch duy nhất — cập nhật 20/10/2026 sau khi kiểm chứng P4 smoke/dryrun/final từ Kaggle.**
+**Một tài liệu kế hoạch duy nhất — cập nhật 20/10/2026 sau khi kiểm chứng P4 smoke/dryrun/final từ Kaggle; 26/10/2026 thêm kế hoạch nâng cấp P6–P10 và kết quả P7/P8 ([mục 6.1](#nang-cap)).**
 Phạm vi: **Subtask A + B, English**.
 [Handoff](../HANDOFF_CS221.md) là bản bàn giao trạng thái; [worklog](../WORKLOG_CS221.md) là lịch sử công việc.
 Nội dung PIPELINE.md đã được gộp vào file này.
@@ -16,9 +16,10 @@ Nội dung PIPELINE.md đã được gộp vào file này.
 | Context, multi-task, Qwen | Đã chạy; Qwen 4×599 dự đoán đã kiểm chứng; DeBERTa được ghi nhận là failed |
 | Kiểm tra và sửa dữ liệu kết quả — P0/P1 | **Xong:** phục hồi bảng 05, chặn OOF hỏng, sửa NaN ensemble, 35 test đạt |
 | Đọc lỗi và viết kết luận — P2 | **Xong:** user đọc 30/30; đã kiểm tra nguồn, tổng hợp 8 ví dụ, đối chiếu 7 mẫu Qwen và viết kết luận riêng |
-| Chọn lại hệ thống cuối — P3 | **Xong:** A greedy+bias 0,7460; B top-3+bias 0,6075; 07/08/summary đã cập nhật |
+| Chọn lại hệ thống cuối — P3 | **Xong 18/10; chạy lại 26/10 có DeBERTa:** A **giữ** greedy+bias 0,7460 (bản mới chỉ +0,0011, 2/5); B **đổi** sang top-3+bias có DeBERTa **0,6159** (+0,0084, 5/5). Recipe trộn A cũ + B mới đã ghi vào `recipe.json` |
 | Lưu/nạp model và đóng gói suy luận — P4 | **Xong:** smoke/dryrun/final trên T4; 7 checkpoint/lượt, offline reload đạt; dryrun 599 ID/task, final train 2.989 mẫu |
 | Báo cáo môn và nộp cuộc thi — P5 | Chưa xong; lịch/hạn môn cần xác nhận |
+| Nâng cấp cho vòng test BTC — P6–P10 | **27/10:** ✅ P7 · ✅ P3 lại · ✅ P8 · ✅ P8.2a (A = stacking) · ✅ P6.1/P6.2 · ✅ **P8.2b diễn tập 1 trên Kaggle: quy trình chạy trọn (164 phút), A 0,7458 / B 0,6365 trên fold 0** · ⚠️ phát hiện lệch phân phối stacker/bias → đã sửa (áp theo fold) · ⏳ **diễn tập 2 (v2) – chờ user chạy** rồi quyết định A/B theo quy tắc đặt trước ([mục 6.1](#nang-cap)) |
 
 **Đánh giá tốc độ:** so với lịch gốc, phần chạy thí nghiệm đang đi trước.
 Lịch gốc dành 12–25/10 cho bước 2–3, 26/10–08/11 cho context và 09–22/11 cho multi-task/LLM;
@@ -71,8 +72,21 @@ flowchart TD
     F --> Q["Dryrun: 599 ID/task, offline reload - ĐÃ XONG"]
     F --> W
     Q --> U["Test chính thức và nộp A/B khi có"]
+    C -.-> P7["P7: DeBERTa 5 fold A 0,740 / B 0,604 - ĐÃ XONG 26/10"]
+    P7 -.-> S2["Chạy lại P3: A giữ cũ, B mới 0,616 - ĐÃ XONG 26/10"]
+    M -.-> P8["P8: A→B bác; stack_A nhận 0,759 - ĐÃ XONG 26/10"]
+    P8 -.-> S2
+    S -.-> S2
+    P8 -.-> P82["P8.2: recipe A = stacking; P6.1/P6.2 code xong - ĐÃ XONG 26/10; diễn tập Kaggle - CHỜ"]
+    P82 -.-> FZ
+    S2 -.-> FZ["Đóng băng recipe ~20/12 - KẾ HOẠCH"]
+    F -.-> P61["P6.1: predict_test.py - KẾ HOẠCH"]
+    FZ -.-> P62["P6.2: trung bình 5 model fold khi có test - KẾ HOẠCH"]
+    P61 -.-> U
+    P62 -.-> U
 ```
 
+Đường nét đứt là kế hoạch nâng cấp P6–P10 (chi tiết ở [mục 6.1](#nang-cap)), chưa thực hiện.
 Qwen hiện chỉ có nhãn trên fold 0; không đưa vào ensemble xác suất của notebook 08.
 Few-shot lấy ví dụ từ fold 1–4, không trùng ID/video của tập đang chấm.
 
@@ -101,6 +115,7 @@ Dry-run cũ không đại diện cho recipe P3 mới. Runner P4 riêng đã trai
 | RoBERTa comment | 0,7274 ± 0,0098 | 0,5856 ± 0,0179 |
 | Twitter-RoBERTa-hate comment | 0,7335 ± 0,0115 | 0,5870 ± 0,0114 |
 | Multi-task cùng encoder, không cw/bias | 0,7354 ± 0,0111 | 0,6006 ± 0,0259 |
+| **DeBERTa-v3-base comment (P7, 26/10)** | **0,7404 ± 0,0090** | **0,6041 ± 0,0192** |
 
 Các số này là điểm phát triển/CV, không phải test độc lập của BTC.
 Bảng các biến thể 05: [nb05_restored.csv](outputs/results/nb05_restored.csv).
@@ -156,6 +171,8 @@ P3 và P4 đã xong; hiện đã đủ bằng chứng để viết phần dữ l
 Nếu hạn gấp: ưu tiên kết quả sạch, phân tích lỗi, bảng so sánh và báo cáo CV;
 không bắt buộc chạy lại DeBERTa hay mở thêm LLM/ngôn ngữ.
 
+**Kiểm tra P5 ngày 26/10:** chưa có file báo cáo hay dàn ý nào. Đủ nguyên liệu: 14/14 file bằng chứng có mặt (8 hình EDA, `confusion_best.png`, `f1_by_length.png`, `context_ablation.png`, `llm_confusion_fold0.png`, `summary_table.csv`, `p3_strategies.csv`, P2/P3/P4_REVIEW). Còn thiếu: yêu cầu hình thức của môn (độ dài, mẫu, ngôn ngữ), sơ đồ pipeline dạng hình, và quyết định có đưa P7/P8 vào báo cáo không.
+
 **Việc trước mắt — P5:** viết báo cáo từ kết quả đã chốt, gồm bài toán/dữ liệu, split theo video, baseline/các cải tiến, lựa chọn P3, phân tích P2 và kiểm chứng P4.
 
 1. Dùng supervised mean ± std 5 fold và bảng Qwen riêng trên cùng fold 0; giải thích vì sao chọn A greedy+bias/B top-3+bias.
@@ -164,6 +181,118 @@ không bắt buộc chạy lại DeBERTa hay mở thêm LLM/ngôn ngữ.
 4. Khi có test/yêu cầu BTC: xác minh format, bổ sung lệnh suy luận cho file mới bằng checkpoint final, kiểm tra TSV rồi nộp. Hiện runner P4 chỉ train/verify/package probe cố định, chưa có lệnh suy luận test tùy ý hoặc lần nộp thật.
 
 Chưa cần chạy thêm Kaggle hoặc toàn bộ 01–08. Cờ train/test cũ ở 08 giữ False; CSV ghi chú P2 và kết quả P3 giữ nguyên.
+
+<a id="nang-cap"></a>
+### 6.1 Kế hoạch nâng cấp cho vòng test BTC (P6–P10) — đánh giá đề xuất ngày 26/10
+Nguồn: `Downloads/SemEval_2027_De_Xuat_Nang_Cap_Pipeline.md` (5 nhóm A–D). Mọi số liệu đề xuất trích dẫn
+đã được đối chiếu với artifact và đều khớp. Đánh giá dưới đây dựa trên dữ liệu của chính dự án, **chưa train gì mới**.
+
+**Đánh giá từng mục**
+| Mục đề xuất | Kết luận | Căn cứ |
+|---|---|---|
+| A1 — script suy luận test tùy ý | **Hợp lý, bắt buộc** | Hiện chưa có lệnh nhận TSV test của BTC (P4 chỉ có 32 mẫu probe) |
+| A2 — trung bình 5 model fold thay cho model train toàn bộ | **Hợp lý, nên làm** | Bias/trọng số P3 được học trên xác suất của chính các model fold, nên test dùng model fold là nhất quán. Lập luận "full-train dễ overfit" thì yếu hơn: CV cũng dùng 4 epoch cố định, không early stopping, và dryrun (train 80%) không cho thấy lệch. Giữ model full-train làm phương án thứ hai |
+| B — cứu DeBERTa-v3 | **Hợp lý, rẻ** | Loss NaN ngay từ epoch 1 ở mọi fold, trên T4 fp16 → lúc đầu đoán là tràn số fp16 (**26/10: đoán sai**, nguyên nhân thật là checkpoint lưu fp16 bị nạp nguyên kiểu, xem kết quả bên dưới). Máy nhà (A2000) chạy được bf16; T4 thì chạy fp32. Câu "DeBERTa luôn mạnh nhất / ensemble bật lên rõ rệt" chỉ là kỳ vọng, phải đo |
+| C — làm lại context (only_second, lọc description, gated fusion) | **Ưu tiên thấp** | Giả thuyết "comment bị cắt" không khớp dữ liệu: cặp câu C2 chỉ cắt 2,7% comment, còn **ít hơn** C0 (4,5%); C1 cắt 5,9%. Điểm giảm khó do cắt cụt, nhiều khả năng do title/description dùng chung theo video. Gated fusion là câu hỏi nghiên cứu cho paper, không phải bản vá nhanh |
+| D1 — dùng A để hỗ trợ B (nối logit / hậu xử lý chung) | **Hợp lý, rẻ nhất (chỉ CPU)** | Lỗi lớn nhất của B là implicit → no: 220 mẫu trong OOF P3, trong đó **52,3% có A = yes**, so với 18,5% ở lớp `no` thật. Tín hiệu A có thể kéo lại một phần. Lưu ý: P(A=yes \| implicit) chỉ 53,9% (explicit 80,2%), nên A giúp tách hate/no nhiều hơn là tách implicit/explicit |
+| D2 — R-Drop / FGM | Hợp lý nhưng tùy chọn | Mức lợi thường nhỏ (~0,005–0,01), xấp xỉ độ lệch giữa các fold (0,010–0,026) → cần so cặp và có thể cần nhiều seed mới phân biệt được |
+| D3 — Qwen sinh lời giải thích rồi fine-tune | Để sau (paper) | Phải sinh cho ~3.700 mẫu (train + test) bằng Qwen 7B, tốn nhiều giờ; hiệu quả chưa chắc chắn |
+| (bổ sung) nhiều seed | Nên cân nhắc | Hiện mọi kết quả chỉ dùng seed 42; khó tách cải thiện 0,005 khỏi nhiễu |
+
+**Kế hoạch theo mốc** (GPU do user tự chạy trên Kaggle/Modal; phần CPU có thể nhờ Claude chạy)
+| Mốc | Việc | Chạy ở đâu | Xong khi |
+|---|---|---|---|
+| **P6.1** | `scripts/predict_test.py --input <test.tsv> --out_dir outputs/submissions/` dùng checkpoint final: kiểm tra cột/ID (không cần cột nhãn), chạy recipe P3, ghi `A.tsv`/`B.tsv`, kiểm format, in phân bố nhãn | CPU máy nhà (743 mẫu suy luận được trên CPU) | Chạy lại 32 probe P4 ra **đúng** nhãn đã lưu; chạy checkpoint dryrun trên fold 0 ra lại A=0,754877 / B=0,614572 |
+| **P7** | DeBERTa-v3-base: thêm tùy chọn `precision` (`auto`/`bf16`/`fp32`) vào `train.py`; chẩn đoán 1 fold × 1 epoch; nếu loss hữu hạn thì chạy đủ 5 fold A, B (comment, len 128, lr 2e-5; nếu chưa ổn định thì 1,5e-5) | Máy nhà bf16 (~25 phút/subtask) hoặc T4 fp32 (~2–3× chậm hơn fp16) | OOF hợp lệ (qua `validate_oof`); chạy lại P3 bằng CPU với 11 ứng viên; chỉ nhận nếu recipe mới đạt quy tắc gain ≥ 0,005 |
+| **P8** | Stacking A→B: hồi quy logistic trên xác suất OOF (thành phần A + B), cross-fit theo fold giống P3; thử cả B→A | CPU | Hơn recipe P3 ≥ 0,005 và thắng ≥ 4/5 fold; F1 implicit tăng mà F1 explicit không sụt |
+| **P6.2** | Trung bình 5 model fold: sửa `run_cv` nhận thêm `df_test` và trả về xác suất test trung bình 5 fold (không cần lưu 25 checkpoint); chạy cho các thành phần transformer của recipe đã đóng băng. Diễn tập bằng chế độ smoke | Kaggle T4, ~1,5–2 giờ cho 5 thành phần | Diễn tập chạy hết; OOF tái tạo lệch ≤ 0,01 macro-F1 so với OOF đã lưu (cùng phần cứng) |
+| **P9** | (tùy chọn) R-Drop cho thành phần mạnh nhất (`mt_twhate_comment`, AB) | Kaggle | Như P8; nếu đạt thì thêm làm ứng viên P3 |
+| **P10** | (để sau, cho paper) gated late-fusion context; Qwen sinh lời giải thích | – | Chỉ làm khi đã xong báo cáo môn và hệ thống nộp |
+
+**Thứ tự và mốc thời gian gợi ý** (hôm nay 26/10; lịch BTC **cần xác minh lại**)
+1. **27/10–09/11:** P5 viết báo cáo môn (vẫn là ưu tiên nếu hạn môn gần — hỏi thầy) + P6.1 (CPU) + chẩn đoán P7.
+2. **10/11–23/11:** P7 đủ 5 fold + P8 (CPU) + chạy lại P3 với ứng viên mới.
+3. **24/11–07/12:** P6.2 code + diễn tập trên Kaggle; P9 nếu còn thời gian.
+4. **~20/12: đóng băng recipe.** Sau mốc này không đổi model/ngưỡng; chỉ sửa lỗi quy trình.
+5. **01/2027 (khi BTC phát test):** chạy P6.2 trên Kaggle → `predict_test.py` → kiểm format → nộp. Nếu Codabench cho ≥ 2 lượt/subtask: run 1 = trung bình 5 fold, run 2 = model full-train P4.
+6. **02/2027:** system paper; P10 nếu muốn có thêm đóng góp.
+
+**Có phải chạy lại P0–P4 không? — Không.** Chỉ train phần mới, mọi thứ đã có được dùng lại:
+| Mốc cũ | Khi thêm cải tiến | Lý do |
+|---|---|---|
+| 01–06, 30 OOF hợp lệ | Giữ nguyên, không train lại | OOF cũ vẫn đúng split/nhãn; cải tiến chỉ **thêm** ứng viên mới |
+| P0/P1 (kiểm tra) | Không chạy lại; OOF mới tự đi qua `validate_oof` khi lưu | Kiểm tra đã nằm sẵn trong code |
+| P2 (đọc 30 lỗi) | Giữ nguyên ghi chú; chỉ chạy lại notebook 07 (CPU) **nếu** recipe cuối thay đổi, để hình/bảng báo cáo khớp | Ghi chú người đọc không phụ thuộc model mới |
+| P3 (chọn hệ thống) | **Chạy lại** `scripts/run_p3_selection.py` (CPU, vài phút) mỗi khi có ứng viên mới (DeBERTa, stacking, R-Drop) | Đây là chỗ quyết định có nhận cải tiến hay không |
+| P4 (checkpoint final) | Recipe không đổi → dùng tiếp. Recipe đổi → train lại **chỉ thành phần mới**, hoặc để P6.2 lo luôn khi có test | P6.2 vẫn phải train lại các model fold lúc có test |
+
+#### Kết quả ngày 26/10 (P7, P8 chạy trên máy nhà, kernel Python (sqe-gpu))
+Notebook: `notebooks/predictDeBERTa(P7).ipynb`, `notebooks/stacking A→B(P8).ipynb` (bản gốc của user ở `notebooks/_ban_goc/`). Bằng chứng: `outputs/p7_deberta/*.json`, `outputs/p8_stacking/`.
+
+**P7 – DeBERTa:**
+- bf16 vẫn NaN → giả thuyết fp16 sai. Nguyên nhân thật: checkpoint `deberta-v3-base` lưu **fp16**, transformers 5.x nạp nguyên kiểu → train thẳng trên trọng số fp16.
+- **Đã sửa `src/sqe/train.py`:** `AutoModel.from_pretrained(..., dtype=torch.float32)`. RoBERTa/twitter-roberta vốn fp32 nên không đổi; **43/43 test đạt** sau sửa.
+- Chẩn đoán fold 0, 4 epoch (cấu hình thật): macro-F1 B **0,634** (RoBERTa 0,617, twitter-roberta 0,610 cùng fold). 9,5 phút/fold trên A2000 bf16, GPU ~4 GB. **Chưa phải điểm CV, chưa vào P3.**
+- Vấn đề phụ: tokenizer fast của DeBERTa không chuẩn hoá NFKC → `[UNK]` ở 146/2989 comment ("…", emoji ghép); NFKC trước khi tokenize còn 104. Không cần hạ cấp transformers (phần còn lại khớp SentencePiece).
+- **Tiếp theo:** chạy đủ 5 fold × A, B (~95 phút máy nhà) → OOF mới → chạy lại P3 (CPU).
+
+**P8 – stacking:**
+- A→B **bị bác**: `stack_B+A` +0,0010 so với P3 (2/5 fold); tín hiệu A không thêm gì so với `stack_B` (−0,0018). Thăm dò: B đoán `no` mà p_A > 0,5 có 157 `no` thật so với 56 implicit.
+- `stack_B` +0,0029 (2/5) → không nhận. B→A (`stack_A+B`) làm A giảm.
+- **`stack_A` đạt tiêu chí** (+0,0066, thắng 4/5; std 0,015). Đã thử 4 biến thể nên có rủi ro trúng may. Muốn dùng phải thêm stacking thành chiến lược chính thức của P3 và vào quy trình dự đoán test → **chờ user quyết định**.
+
+**Bộ chạy Kaggle P7 (26/10, tối):** `../kaggle/sqe_p7_bundle.zip` + `kaggle_runner_p7.ipynb` (có chế độ SMOKE; tự chọn fp16 trên T4, NaN thì chuyển fp32) + `merge_p7_results.py` + `rerun_p3_with_backup.py`; hướng dẫn: [HUONG_DAN_KAGGLE_P7.md](../kaggle/HUONG_DAN_KAGGLE_P7.md). `train.py` có thêm tùy chọn `normalize="nfkc"` (chỉ bật cho P7; [UNK] 146 → 103). Đã chạy thử SMOKE trên máy (giả lập `/kaggle`) và kiểm tra script nhập (từ chối SMOKE, `--dry-run` không ghi); 43/43 test đạt. Kết quả mới mang tên `deberta_p7_comment_*`, không đè OOF NaN cũ.
+
+**Quyết định `stack_A` (26/10): CHƯA NHẬN.** Lý do: (1) chỉ vừa qua ngưỡng (+0,0066 so với 0,005) sau khi thử 4 biến thể → rủi ro trúng may; (2) std cao hơn recipe hiện tại (0,015 so với 0,010); (3) muốn dùng phải thêm chiến lược mới vào P3 và train/lưu thêm cả 9 model A cho test (P4 hiện chỉ có 7 checkpoint); (4) tập ứng viên sắp đổi khi có DeBERTa. → Sau khi nhập DeBERTa: chạy lại P8 với ứng viên mới; chỉ nhận nếu `stack_A` vẫn hơn recipe mới ≥ 0,005 **và** thắng 5/5 fold.
+
+**Môi trường chuẩn (26/10):** kernel **Python (sqe-gpu)** = `C:\Users\ADMIN\venvs\sqe` (Python 3.14.4, torch 2.11 cu128, transformers 5.14.1). Đã đặt `.vscode/settings.json` trỏ interpreter mặc định tới môi trường này. Không cài/hạ cấp thư viện bằng `%pip` trong notebook. Notebook 01–08 đã được chuyển vào `notebooks/Baseline/`; `scripts/audit_artifacts.py` và test đã sửa để quét thư mục con.
+
+#### Kết quả ngày 26/10 (lần 2 – sau khi chạy Kaggle P7)
+**Vị trí trong kế hoạch nâng cấp:** P7 ✅ · chạy lại P3 ✅ · P8 ✅ (2 lần) · **P8.2 (mới) ⏳** · P6.1 ⏳ · P6.2 ⏳ · P9/P10 tùy chọn. Các mốc P7/P8 vốn hẹn đến 23/11 → **đi trước lịch khoảng 4 tuần**.
+
+**P7 trên Kaggle (Tesla T4, transformers 5.16.1, torch báo hỗ trợ bf16 nên chạy bf16; 2 × 27 phút):** loss hữu hạn và giảm đều ở cả 10 lượt. A **0,7404 ± 0,0090** (hơn RoBERTa +0,0130, 5/5; hơn twitter-roberta +0,0069, 4/5); B **0,6041 ± 0,0192** (+0,0186 và +0,0171, đều 5/5). Đã nhập bằng `merge_p7_results.py`: OOF `deberta_p7_comment_*`, 2 dòng `P7` trong master.
+
+**Chạy lại P3 (có sao lưu ở `outputs/audit/2026-10-26-p3-rerun/before/`, kết quả P3 mới đầy đủ ở `after_p3_new/`):**
+| | Recipe cũ | P3 mới | So cặp | Quyết định |
+|---|---|---|---|---|
+| A | greedy+bias 0,7460 | greedy+bias 0,7471 (thêm DeBERTa) | +0,0011, 2/5 | **giữ cũ** (dưới ngưỡng 0,005; checkpoint P4 của A vẫn dùng được) |
+| B | top-3+bias 0,6075 | top-3+bias **0,6159** (DeBERTa + MT + MTcw) | +0,0084, 5/5 | **nhận** |
+B mới đánh đổi: F1 no 0,739 → 0,751, explicit 0,620 → 0,654, **implicit 0,463 → 0,443**. `recipe.json` = A cũ + B mới (có trường `p7_decision`); master: dòng A mới = `not_adopted_p7`, dòng B cũ = `superseded_p7`. Checkpoint P4 không còn khớp B (thiếu DeBERTa) → P6.2 sẽ train lại khi có test.
+
+**P8 lần 2 (10 ứng viên/subtask):** `stack_A` **0,7587 ± 0,0073**, +0,0127 so với recipe A, **thắng 5/5** (từng fold +0,004 đến +0,018) → đạt điều kiện chặt → **NHẬN**. `stack_A+B` +0,0057 (4/5, kém `stack_A`); `stack_B` +0,0093 nhưng 3/5 → không nhận; `stack_B+A` +0,0013 (2/5) → A→B bị bác lần 2. Lần 1 lưu ở `outputs/audit/2026-10-26-p3-rerun/p8_lan1_truoc_deberta/`.
+
+**Mốc mới P8.2 – triển khai `stack_A`:** (1) thêm "stacking" thành chiến lược chính thức trong `selection.py`/`run_p3_selection.py` (hồi quy logistic C=1, balanced, chuẩn hoá, cross-fit), ghi hệ số vào recipe; (2) dự đoán test cần xác suất của **cả 10 model A** → gộp vào P6.2 (train 5 fold cho đủ 10 thành phần A + 3 thành phần B); (3) cập nhật `predict_test.py` (P6.1). Làm trước khi đóng băng (~20/12).
+
+#### Kết quả ngày 26/10 (lần 3 – P8.2a, P6.1, P6.2)
+**Vị trí:** P7 ✅ · P3 lại ✅ · P8 ✅ · P8.2a ✅ · P6.1 ✅ · P6.2 ✅ (code + SMOKE) · **P8.2b diễn tập Kaggle ⏳** · đóng băng ~20/12 · test 01/2027.
+
+- **P8.2a – recipe A = stacking:** `scripts/p82_adopt_stack_A.py` (sao lưu ở `outputs/audit/2026-10-26-p82/before/`) tính lại stack_A = **0,7587 ± 0,0073** (khớp P8), ghi `recipe.json` A = `stacking (logistic regression)`, 10 thành phần, cấu hình stacker cố định (`src/sqe/stacking.py`, khớp OOF P8 tới 3e-16), giữ recipe cũ ở `previous_recipe`. Master: recipe A cũ → `superseded_p8`, thêm dòng recipe A mới. **Recipe hiện hành: A stacking 0,7587 · B top-3+bias 0,6159.**
+- **P6.2 – `src/sqe/testtime.py`:** mỗi model train k fold → OOF + trung bình xác suất test; A fit lại stacker trên OOF mới, B fit lại bias; lưu đệm từng model (npz) để chạy tiếp khi bị ngắt. Model nhận diện theo run (`deberta_p7_comment@A` và `@B` là 2 model riêng) → **11 model** (9 transformer + 2 TF-IDF).
+- **P6.1 – `scripts/predict_test.py`:** `--test <tsv>` (test thật) hoặc `--pseudo-test-fold K` (diễn tập có chấm điểm), `--smoke`, `--cache-dir`, `--precision`. Ghi `A.tsv`/`B.tsv` (id<TAB>nhãn, không header), `probabilities.csv`, `report.json`.
+- **Kiểm chứng trên máy:** SMOKE fold 0 chạy trọn 11 model × 4 fold trong 4 phút; chạy lại đọc cache 11/11 trong 18 giây; file nộp đúng định dạng. Script nhập diễn tập chấm lại khớp tuyệt đối với OOF fold 0 (A 0,7523, B 0,6322) trên gói giả lập. **46/46 test đạt** (thêm 3 test P6; test P4 nay kiểm tra recipe P4 lịch sử ở `audit/2026-10-26-p3-rerun/before/`).
+- **Lưu ý:** `run_p4.py`/`p4.create_plan` gắn với recipe P4 cũ và **không dùng cho recipe hiện hành** (sẽ báo lỗi "Conflicting shared component"); dự đoán test dùng `predict_test.py`.
+- **P8.2b (chờ user):** diễn tập toàn quy trình trên Kaggle với fold 0 làm test giả – [hướng dẫn](../kaggle/HUONG_DAN_KAGGLE_P82.md). Mốc so sánh: A 0,7523, B 0,6322 (OOF cùng fold 0).
+
+#### Kết quả ngày 27/10 – diễn tập P8.2b lần 1 (Kaggle) và bản sửa v2
+**Diễn tập 1** (Tesla T4, bf16, 164 phút; train fold 1–4 bằng CV 4 fold, test = fold 0 giấu nhãn; đã nhập vào `outputs/p82_rehearsal/`, 2 dòng `P8.2` trong master):
+| Hệ thống trên fold 0 held-out | A | B |
+|---|---|---|
+| **Hệ thống nộp (diễn tập 1)** | **0,7458** | **0,6365** |
+| OOF recipe cùng fold 0 (mốc) | 0,7523 | 0,6322 |
+| Trung bình đều các thành phần (không tham số học) | 0,7595 | 0,6402 (không bias) |
+| Recipe A cũ (greedy+bias) | 0,7479 | – |
+| Model đơn tốt nhất | DeBERTa 0,7641 | DeBERTa 0,6337 |
+- Quy trình chạy trọn, đạt tiêu chí diễn tập (lệch mốc < 0,03). Thời gian/model: transformer len 128 ~14–16 phút, len 256 ~31 phút.
+- **Phát hiện:** ở held-out, stacking A thấp hơn trung bình đều (−0,014) và thấp hơn model đơn; bias B làm giảm nhẹ (−0,004); phân bố dự đoán lệch về "có hate/stereotype" (A đoán yes 51% so với thật 44%; B đoán no 41% so với thật 47%). Trên OOF 5 fold thì stacking vẫn hơn trung bình đều +0,005 (3/5) → bằng chứng **lẫn lộn**; 1 fold 599 mẫu có sai số ≈ ±0,02.
+- **Nguyên nhân khả dĩ (đã đo):** stacker/bias học trên OOF (mỗi dòng từ 1 model) nhưng áp lên xác suất đã trung bình 4 model; |logit| test/OOF ≈ 0,94 (transformer 0,89–0,98).
+- **Đã sửa P6.2 (v2):** stacker và bias áp cho **từng model fold rồi mới trung bình** (`apply_mode = per_fold`); cache v2 lưu xác suất test từng fold. Ở chế độ diễn tập, report chấm thêm: cách cũ (`mean_then_*`), trung bình đều (`mean_components`), không bias (`ensemble_no_bias`). SMOKE máy đạt; 46/46 test đạt. Bundle mới: `../kaggle/sqe_p82_v2_bundle.zip`.
+
+**Quy tắc quyết định cho diễn tập 2 (đặt ngày 27/10, TRƯỚC khi có kết quả):**
+- **A:** giữ stacking nếu điểm held-out của stacking theo fold ≥ `mean_components` − 0,01; nếu không → đổi A sang **trung bình đều 10 thành phần** (không tham số học; OOF 5 fold 0,7536).
+- **B:** giữ bias nếu điểm held-out có bias (theo fold) ≥ `ensemble_no_bias` − 0,01; nếu không → bỏ bias (OOF 5 fold không bias 0,6145, có bias 0,6159).
+- Khoảng −0,01 là vì 1 fold có nhiễu ±0,02 và bằng chứng OOF 5 fold nghiêng nhẹ về phương án có tham số. Sau quyết định này → **đóng băng recipe**.
+
+**Quy tắc chấp nhận một cải tiến:** giữ nguyên quy tắc P3 (chọn ngoài fold đang chấm, gain ≥ 0,005 so với single tốt nhất, xem F1 từng lớp và số fold thắng). Mỗi thay đổi đo riêng lẻ, mỗi lần một thay đổi. Không dùng điểm dryrun hay probe để chọn.
 
 ## 7. Điều kiện hợp lệ và cách lưu kết quả
 1. Dùng nguyên split theo video; fit TF-IDF/class weight/mô hình chỉ từ train fold.
@@ -205,6 +334,7 @@ Chưa cần chạy thêm Kaggle hoặc toàn bộ 01–08. Cờ train/test cũ �
 ## 9. Lịch và phạm vi nộp
 Hạn môn chưa xác nhận. Tài liệu BTC đang lưu mô tả test EN 743 mẫu từ video khác, dự kiến tháng 01/2027;
 kế hoạch cũ ghi đánh giá 10–31/01/2027 và system paper 02/2027. **Chưa xác minh lại các mốc này trong phiên 20/10.**
+**26/10 (user báo):** Codabench đang lỗi server, không ai truy cập được; BTC đã thông báo về sự cố, nên chưa cần lo chậm. Kiểm tra lại khi BTC báo đã khắc phục.
 Trước khi nộp phải kiểm tra nguồn chính thức, quy cách header/tên file và giới hạn lượt nộp.
 Nộp A và B riêng; không có yêu cầu tự suy ra rằng phải làm toàn bộ subtask/ngôn ngữ.
 

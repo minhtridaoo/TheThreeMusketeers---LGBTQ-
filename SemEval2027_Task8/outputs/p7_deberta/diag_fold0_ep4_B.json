@@ -1,0 +1,50 @@
+{
+ "status": "ok",
+ "passed": true,
+ "precision": "torch.bfloat16",
+ "cfg": {
+  "model": "microsoft/deberta-v3-base",
+  "input": "comment",
+  "max_length": 128,
+  "lr": 2e-05,
+  "epochs": 4,
+  "batch_size": 8,
+  "accum": 2,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "dropout": 0.1,
+  "class_weight": false,
+  "loss_weights": null,
+  "grad_ckpt": false,
+  "seed": 42
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 1.046716211531872,
+   "val_f1_B": 0.4347890959970046
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.8685870006132286,
+   "val_f1_B": 0.5938873629168446
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.6410048621454366,
+   "val_f1_B": 0.6175162458719505
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.4543258939748225,
+   "val_f1_B": 0.6338176258562668
+  }
+ ],
+ "error": "",
+ "minutes": 9.5,
+ "reference_epoch4_fold0": {
+  "roberta_comment": 0.6170789499732522,
+  "twhate_comment": 0.6095088506115239
+ },
+ "note": "Chẩn đoán fold 0, 4 epoch; KHÔNG phải điểm CV 5 fold, không đưa vào all_results/P3."
+}
